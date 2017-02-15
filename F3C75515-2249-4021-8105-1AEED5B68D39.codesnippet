@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaTableViewController_pullUp</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//
+//  &lt;#DiscoverNoticeViewWatchController.m#&gt;
+//  hunlimao
+//
+//  Created by Jacob on &lt;#2017/2/10#&gt;.
+//  Copyright © &lt;#2017#&gt;年 taoximao. All rights reserved.
+//
+
+#import "DiscoverNoticeViewWatchController.h"
+//view
+#import "DiscoverNoticeWatchCell.h"
+//lib
+#import &lt;SVProgressHUD.h&gt;
+#import "MJRefresh.h"
+
+
+@interface DiscoverNoticeViewWatchController ()&lt;UITableViewDelegate, UITableViewDataSource&gt;
+@property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *noticesArray;
+@property (nonatomic, assign) NSInteger page;
+
+@end
+
+@implementation DiscoverNoticeViewWatchController
+
+- (instancetype)init {
+    if (self = [super init]) {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self setUpNav];
+    [self setUpInit];
+    [self setUpTableView];
+    
+    [self.tableView.mj_header beginRefreshing];
+}
+
+- (void)setUpNav {
+    self.navigationItem.title = @"关注消息";
+}
+
+- (void)setUpInit {
+    self.view.backgroundColor = themeBackgroundColor;
+}
+
+- (void)setUpTableView {
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+    [self.view addSubview:tableView];
+    _tableView = tableView;
+    tableView.backgroundColor = themeBackgroundColor;
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    tableView.mj_header = [HLMRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestNewNotices)];
+    tableView.mj_header.automaticallyChangeAlpha = YES;
+    tableView.mj_footer = [HLMRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(requsetMoreNotices)];
+    //    tableView.mj_footer.hidden = YES;
+    
+    [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DiscoverNoticeWatchCell class]) bundle:nil] forCellReuseIdentifier:DiscoverNoticeWatchCellID];
+}
+
+
+#pragma mark - UITableViewDelegate &amp; UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 50;//self.noticesArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    DiscoverNoticeWatchCell *cell = [tableView dequeueReusableCellWithIdentifier:DiscoverNoticeWatchCellID];
+    //    cell.message = self.noticesArray[indexPath.row];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 72;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.01;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.01;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+#pragma mark - Network Request
+- (void)requestNewNotices {
+    
+    self.page = 1;
+    
+    HLMWeakSelf
+    //    [CooperationKeeperServer listUnreadFriendsAndFamilyMessageByPage:self.page successBlock:^(NSArray&lt;FriendsAndFamilyMessage *&gt; *friednsAndFamilyMessageArray) {
+    //
+    //        if (friednsAndFamilyMessageArray.count) {
+    //
+    //            weakSelf.noticesArray = [NSMutableArray arrayWithArray:friednsAndFamilyMessageArray];
+    //
+    //            weakSelf.tableView.mj_footer.hidden = NO;
+    //            [weakSelf.tableView.mj_header endRefreshing];
+    //            [weakSelf.tableView reloadData];
+    //
+    //        } else {
+    //
+    //            [weakSelf.tableView.mj_header endRefreshing];
+    //        }
+    //
+    //    } failureBlock:^(NSError *error) {
+    //        [weakSelf.tableView.mj_header endRefreshing];
+    //    }];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView.mj_header endRefreshing];
+    });
+    
+}
+
+- (void)requsetMoreNotices {
+    
+    self.page ++;
+    
+    HLMWeakSelf
+    //    [CooperationKeeperServer listUnreadFriendsAndFamilyMessageByPage:self.page successBlock:^(NSArray&lt;FriendsAndFamilyMessage *&gt; *friednsAndFamilyMessageArray) {
+    //
+    //        if (friednsAndFamilyMessageArray.count) {
+    //
+    //            [weakSelf.noticesArray addObjectsFromArray:friednsAndFamilyMessageArray];
+    //            [weakSelf.tableView reloadData];
+    //            [weakSelf.tableView.mj_footer endRefreshing];
+    //
+    //        } else {
+    //
+    //            [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+    //        }
+    //
+    //    } failureBlock:^(NSError *error) {
+    //        [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+    //    }];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView.mj_footer endRefreshingWithNoMoreData];
+    });
+    
+}
+
+#pragma getter &amp; setter
+
+- (NSMutableArray *)noticesArray {
+    if (!_noticesArray) {
+        _noticesArray = [NSMutableArray array];
+    }
+    return _noticesArray;
+}
+
+@end
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>F3C75515-2249-4021-8105-1AEED5B68D39</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>只有上下拉</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>TableView控制器_上下拉</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

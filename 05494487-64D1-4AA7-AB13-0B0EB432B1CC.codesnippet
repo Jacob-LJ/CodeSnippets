@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaCellHeightAuto</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (CGFloat)cellHeight {
+    
+    [self.containerView layoutIfNeeded];
+    CGFloat height = [self.containerView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height+1;
+    return height;
+    
+//1.不能直接使用cell.contentView 进行适配计算(这样会无效)
+//2.应该在label子控件外包一个UIView container,在使用它尽心适配计算
+//3.此时view 内label只要四周的固定约束即可, 参考WPScenicSpotDetailDescriptionCell
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>05494487-64D1-4AA7-AB13-0B0EB432B1CC</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>自动cell计算高度_仅含label</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaCellHeightAuto_justContainLabel</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

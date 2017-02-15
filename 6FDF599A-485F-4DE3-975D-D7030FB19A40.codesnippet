@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jashadow</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    self.menuView.layer.shadowOpacity = 1;
+    self.menuView.layer.shadowColor = RGBA(0, 0, 0, 0.4).CGColor;
+    self.menuView.layer.shadowOpacity = 6;
+    self.menuView.layer.shadowOffset = CGSizeMake(0, 2);
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>6FDF599A-485F-4DE3-975D-D7030FB19A40</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>viewshadow</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>view阴影属性设置</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

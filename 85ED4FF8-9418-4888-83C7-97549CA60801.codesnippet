@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaGradientLayer</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>CAGradientLayer *layer = [CAGradientLayer layer];
+layer.frame =  CGRectMake(0, 0, self.gradientView.hlm_width, self.gradientView.hlm_height);
+layer.colors = @[
+                 (id)[UIColor clearColor].CGColor,
+                 (id)[[UIColor blackColor] colorWithAlphaComponent:0.5].CGColor,
+                 ];
+layer.locations = @[@(0.05f) ,@(0.95f)];
+layer.startPoint = CGPointMake(0.5, 0.0);
+layer.endPoint = CGPointMake(0.5, 1.0);
+layer.opacity = 1;
+[self.gradientView.layer addSublayer:layer];
+
+//  创建 CAGradientLayer 对象
+CAGradientLayer *layer = [CAGradientLayer layer];
+//  设置 gradientLayer 的 Frame
+layer.frame =  CGRectMake(0, 0, self.gradientView.hlm_width, self.gradientView.hlm_height);
+//  创建渐变色数组，需要转换为CGColor颜色
+layer.colors = @[
+                 (id)[UIColor clearColor].CGColor,
+                 (id)[[UIColor blackColor] colorWithAlphaComponent:0.5].CGColor,
+                 ];
+//  设置三种颜色变化点，取值范围 0.0~1.0
+// locations属性代表每个颜色开始的位置，
+// 其中第一个0.1代表:第一个颜色到gradientlayer.frame的10%处为止，
+// 第二个0.9表示:第二个颜色从gradientlayer.frame的90%处开始，
+// 0.1~0.9代表:中间的部分是渐变部分
+// 如果是前后两个相同值,则表示没有渐变部分
+layer.locations = @[@(0.05f) ,@(0.95f)];
+
+//  设置渐变颜色方向，左上点为(0,0), 右下点为(1,1)
+layer.startPoint = CGPointMake(0.5, 0.0);
+layer.endPoint = CGPointMake(0.5, 1.0);
+//透明度默认值就是1,不透明
+layer.opacity = 1;
+//  添加渐变色到创建的 UIView 上去
+[self.gradientView.layer addSublayer:layer];
+//效果参考 http://www.jianshu.com/p/11a7d7f34f12
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>85ED4FF8-9418-4888-83C7-97549CA60801</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>jaGradientLayer 使用</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaGradientLayer</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

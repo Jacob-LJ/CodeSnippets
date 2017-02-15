@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jalldb_rect_change</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>expression CGRect rect; rect.origin.x=0; rect.origin.y=0; rect.size.width=375; rect.size.height=509; (void)[self.emptyView setFrame:rect];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>40A4D641-CB8D-49E0-8C6D-0E6696B29387</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>lldb_rect_change</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>lldb_rect_change</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
