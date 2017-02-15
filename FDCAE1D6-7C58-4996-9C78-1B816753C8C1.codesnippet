@@ -3,28 +3,43 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>javiewshadowsetting</string>
+	<string>jaupOrDownScroll</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    self.menuView.layer.shadowOpacity = 1;
-    self.menuView.layer.shadowColor = RGBA(0, 0, 0, 0.4).CGColor;
-    self.menuView.layer.shadowOpacity = 6;
-    self.menuView.layer.shadowOffset = CGSizeMake(0, 2);
+	<string>#pragma mark - UIScrollViewDelegate
+
+float lastContentOffset;
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    lastContentOffset = scrollView.contentOffset.y;
+}
+
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+        
+    if (lastContentOffset &lt; scrollView.contentOffset.y) {
+        NSLog(@"向上滚动");
+        
+    } else {
+        NSLog(@"向下滚动");
+        
+    }
+    
+}
 </string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>6FDF599A-485F-4DE3-975D-D7030FB19A40</string>
+	<string>FDCAE1D6-7C58-4996-9C78-1B816753C8C1</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>view阴影属性设置</string>
+	<string>判断ScrollView上滚还是下滚</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>javiewShadowSetting</string>
+	<string>jaupOrDownScroll</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

@@ -184,9 +184,9 @@
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>只有上下拉</string>
+	<string>tableViewController只带上下拉动作</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>TableView控制器_上下拉</string>
+	<string>jatableViewController_带上下拉</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

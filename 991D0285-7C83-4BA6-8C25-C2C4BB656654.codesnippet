@@ -2,21 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jacellID</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>ClassImplementation</string>
+		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string></string>
+	<string>static NSString * const &lt;#WPScenicSpotRecommendCell#&gt;ID = @"&lt;#WPScenicSpotRecommendCell#&gt;";</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>45C54D3A-EA07-4F13-8E26-73BCD030DDFC</string>
+	<string>991D0285-7C83-4BA6-8C25-C2C4BB656654</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<string>Xcode.SourceCodeLanguage.Objective-C-Plus-Plus</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>cell ID 设置</string>
 	<key>IDECodeSnippetTitle</key>
-	<string></string>
+	<string>jacellIDSetting</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

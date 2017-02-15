@@ -254,7 +254,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>TableView控制器(上下拉,popMenu)</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>TableView控制器(上下拉,popMenu)</string>
+	<string>jatableViewController_带上下拉和popMenu</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

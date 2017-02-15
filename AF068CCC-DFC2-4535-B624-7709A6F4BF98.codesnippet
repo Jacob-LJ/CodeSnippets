@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaalertView</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>LPNewAlertView *alert = [[LPNewAlertView alloc] init];
+        alert.topTitle = [NSAttributedString hlm_createAttributedStringWithString:@"保存为草稿" font:18 textColor:RGBA(47, 47, 47, 1) lineHeight:5];
+//        alert.subTitle = [NSAttributedString hlm_createAttributedStringWithString:[NSString stringWithFormat:@""] font:14 textColor:RGBA(128, 128, 128, 1) lineHeight:5];
+        
+        LPNewAlertAction *action0 = [LPNewAlertAction actionWithTitle:@"删除" titleColor:themeColor font:[UIFont systemFontOfSize:18] action:^{
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        @weakify(self);
+        LPNewAlertAction *action1 = [LPNewAlertAction actionWithTitle:@"保存" titleColor:RGBA(47, 47, 47, 1) font:[UIFont systemFontOfSize:18] action:^{
+            @strongify(self);
+            //保存草稿
+            [self saveAsDraft];
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        }];
+        
+        //    alert.image = [UIImage imageNamed:@"cat_2"];
+        alert.imageSize = CGSizeMake(70, 70);
+        alert.imageMargin = -35;
+        alert.actionSeperateInset = UIEdgeInsetsMake(6.5, 0, 6.5, 0);
+        alert.actionHeight = 40;
+        alert.actionsArray = @[action0, action1];
+        [alert lp_showCompletedBlock:nil];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>AF068CCC-DFC2-4535-B624-7709A6F4BF98</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>猫头弹框_LPNewAlertView</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaalertView</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

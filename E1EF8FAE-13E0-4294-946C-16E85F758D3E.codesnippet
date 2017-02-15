@@ -6,10 +6,10 @@
 	<string>jastrong</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>ClassInterfaceMethods</string>
+		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@property (nonatomic, strong) &lt;#class#&gt; *&lt;#property#&gt;; /**&lt; &lt;#desc#&gt; */</string>
+	<string>@property (nonatomic, strong) &lt;#class#&gt; *&lt;#property#&gt;</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>E1EF8FAE-13E0-4294-946C-16E85F758D3E</string>
 	<key>IDECodeSnippetLanguage</key>
@@ -17,7 +17,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>strong 属性</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>strong 属性</string>
+	<string>jastrong</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

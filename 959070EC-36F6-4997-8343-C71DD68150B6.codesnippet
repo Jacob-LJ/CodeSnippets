@@ -3,24 +3,24 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jadesc</string>
+	<string>jadelegate</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string> /**&lt; &lt;#desc#&gt; */</string>
+	<string>@property (nonatomic, weak) id&lt;&lt;#WPScenicSpotCityCellDelegate#&gt;&gt; delegate;</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>C7470292-DC63-4771-9785-81AE8D296A39</string>
+	<string>959070EC-36F6-4997-8343-C71DD68150B6</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<string>Xcode.SourceCodeLanguage.Objective-C-Plus-Plus</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>property描述</string>
+	<string>delegate 属性</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>property描述</string>
+	<string>jadelegate</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

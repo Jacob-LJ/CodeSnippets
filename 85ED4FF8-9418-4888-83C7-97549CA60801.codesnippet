@@ -15,7 +15,7 @@ layer.colors = @[
                  (id)[UIColor clearColor].CGColor,
                  (id)[[UIColor blackColor] colorWithAlphaComponent:0.5].CGColor,
                  ];
-layer.locations = @[@(0.05f) ,@(0.95f)];
+layer.locations = @[@(0.05f) ,@(0.95f)];//可没有,没有时候整个区域都是渐变
 layer.startPoint = CGPointMake(0.5, 0.0);
 layer.endPoint = CGPointMake(0.5, 1.0);
 layer.opacity = 1;
@@ -52,12 +52,12 @@ layer.opacity = 1;
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>jaGradientLayer 使用</string>
+	<string>渐变层使用</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jaGradientLayer</string>
+	<string>jagradientLayer</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>0</integer>
+	<integer>2</integer>
 </dict>
 </plist>

@@ -9,7 +9,7 @@
 		<string>ClassInterfaceMethods</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@property (nonatomic, assign) BOOL &lt;#property#&gt;; /**&lt; &lt;#desc#&gt; */</string>
+	<string>@property (nonatomic, assign) BOOL &lt;#property#&gt;;</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>63E2B3BE-9670-4E82-AC8B-D5A0A055E2DF</string>
 	<key>IDECodeSnippetLanguage</key>
@@ -19,7 +19,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>Bool 属性</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Bool 属性</string>
+	<string>jabool 属性</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

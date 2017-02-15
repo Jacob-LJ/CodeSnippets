@@ -3,35 +3,22 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jaSegmentController</string>
+	<string>jasegmentController</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>//
-//  WeddingPhotoMainViewController.m
-//  hunlimao
-//
-//  Created by Jacob on 2017/2/13.
-//  Copyright © 2017年 taoximao. All rights reserved.
-//
+	<string>
+#import "SegmentViewViewController.h"
 
-#import "WeddingPhotoMainViewController.h"
 //view
-//#import "WeddingPhotoMianVcTitleView.h"
 #import "LPSegmentedView.h"
 //category
 #import "UIView+Frame.h"
 
-//test
-#import "DiscoverNoticeWatchCell.h"
-//vc
-#import "WTAllTaskViewController.h"
-#import "WTRecentTaskViewController.h"
-#import "WTStarTaskViewController.h"
 
-@interface WeddingPhotoMainViewController ()&lt;LPSegmentedViewDelegate, UIScrollViewDelegate&gt;
+@interface SegmentViewViewController ()&lt;LPSegmentedViewDelegate, UIScrollViewDelegate&gt;
 
 @property (nonatomic, weak) UIView *titleView;
 
@@ -43,7 +30,7 @@
 
 @end
 
-@implementation WeddingPhotoMainViewController
+@implementation SegmentViewViewController
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -54,8 +41,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.userGroupId = 10;
     
     [self setUpInit];
     [self setUpNav];
@@ -69,12 +54,6 @@
     [super viewWillAppear:animated];
     
     self.contentView.contentSize = CGSizeMake(self.contentView.hlm_width * self.segmentView.items.count, 0);
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    //可以设置titleView y 值但是会跳动
-//    self.titleView.frame = CGRectMake(self.navigationItem.titleView.hlm_x, 0, self.titleView.hlm_width, self.titleView.hlm_height);
 }
 
 
@@ -110,12 +89,12 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = themeBackgroundColor;
     
-    WTAllTaskViewController *VC1 = [[WTAllTaskViewController alloc] init];
-    VC1.userGroupId = self.userGroupId;
-    WTRecentTaskViewController *VC2 = [[WTRecentTaskViewController alloc] init];
-    VC2.userGroupId = self.userGroupId;
-    WTStarTaskViewController *VC3 = [[WTStarTaskViewController alloc] init];
-    VC3.userGroupId = self.userGroupId;
+    HLMBaseViewController *VC1 = [[HLMBaseViewController alloc] init];
+    
+    HLMBaseViewController *VC2 = [[HLMBaseViewController alloc] init];
+    
+    HLMBaseViewController *VC3 = [[HLMBaseViewController alloc] init];
+    
     
     self.viewControllers = @[VC1, VC2, VC3];
     
@@ -187,6 +166,7 @@
     
     [self.contentView addSubview:VC.view];
     VC.view.frame = CGRectMake(index * self.contentView.hlm_width, 0, self.contentView.hlm_width, self.contentView.hlm_height);
+    VC.view.backgroundColor = [UIColor colorWithRed:arc4random() % 256 / 256.0 green:arc4random() % 256 / 256.0 blue:arc4random() % 256 / 256.0 alpha:1];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -197,10 +177,7 @@
     self.segmentView.selectedIndex = index;
 }
 
-
-
 @end
-
 </string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>53EA166A-894A-4205-9939-F9397A511E04</string>
@@ -209,7 +186,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>ja设置导航栏下segment的Controller</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>ja设置segmentController</string>
+	<string>jasegmentController_设置segmentController</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
