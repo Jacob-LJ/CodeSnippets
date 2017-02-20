@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jacollectionViewController</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#import "WPSelectionDetailViewController.h"
+
+//view
+#import "WPSelectionDetailMainCCell.h"
+
+@interface WPSelectionDetailViewController ()&lt;UICollectionViewDelegate, UICollectionViewDataSource&gt;
+
+@property (nonatomic, weak) UICollectionView *collectionView;
+@property (nonatomic, weak) UICollectionViewFlowLayout *flowLayout;
+
+@end
+
+@implementation WPSelectionDetailViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setUpCollectionView];
+}
+
+- (void)setUpCollectionView {
+    
+    CGRect frame = CGRectMake(0, 0, HLMScreenW, HLMScreenH - 50);
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.itemSize = frame.size;
+    flowLayout.minimumInteritemSpacing = 0;
+    flowLayout.minimumLineSpacing = 0;
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+
+    
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:flowLayout];
+    collectionView.delegate = self;
+    collectionView.dataSource = self;
+    [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([WPSelectionDetailMainCCell class]) bundle:nil] forCellWithReuseIdentifier:WPSelectionDetailMainCCellID];
+    
+    [self.view addSubview:collectionView];
+    self.collectionView = collectionView;
+    self.flowLayout = flowLayout;
+}
+
+#pragma mark - UICollectionViewDelegate, UICollectionViewDataSource
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 3;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    WPSelectionDetailMainCCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:WPSelectionDetailMainCCellID forIndexPath:indexPath];
+    cell.contentView.backgroundColor = [UIColor colorWithRed:arc4random() % 256 / 256.0 green:arc4random() % 256 / 256.0 blue:arc4random() % 256 / 256.0 alpha:1];
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"点击-- %@",indexPath);
+}
+
+
+@end</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>28895672-F191-45A3-8F7D-566ECAFBEBC9</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>简单baseVC+collectionView</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jacollectionViewController</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
