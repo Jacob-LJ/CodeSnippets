@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaJSONModelKeyMapper</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>+ (JSONKeyMapper *)keyMapper{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{
+                                                       @"description":@"scenicDescription"
+                                                       }
+            ];
+}
+
+- (NSArray&lt;MiniImage&gt; *)images{
+    if (_images &amp;&amp; ![((MiniImage *)_images.firstObject).url hasSuffix:@"-mScenic.a.jpg"]) {
+        for (MiniImage *mImage in _images) {
+            mImage.url = [mImage.url stringByAppendingString:@"-mScenic.a.jpg"];
+        }
+    }
+    
+    return _images;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>528E9570-3EC4-40D1-A1A1-725914FD3923</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>另命名jsonModel属性避开关键字如description等</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaJSONModelKeyMapper</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
