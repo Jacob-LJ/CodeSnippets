@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jatableViewRefreshHeaderFooterSetting</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>tableView.mj_header = [HLMRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestNewNotices)];
+    tableView.mj_header.automaticallyChangeAlpha = YES;
+    tableView.mj_footer = [HLMRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(requsetMoreNotices)];
+    tableView.mj_footer.hidden = YES;</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B38AEBD1-FAA5-48BA-A421-9CB75385148C</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>常用refreshHeader和Footer设置</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jatableViewRefreshHeaderFooterSetting</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
