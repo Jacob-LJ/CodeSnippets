@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaNumberTransfer</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>int testNum = 3.7999;
+
+NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+
+formatter.numberStyle = kCFNumberFormatterRoundHalfDown;
+
+NSString *string = [formatter stringFromNumber:[NSNumber numberWithInt: testNum]];
+
+//typedef CF_ENUM(CFIndex, CFNumberFormatterRoundingMode) {
+//    kCFNumberFormatterRoundCeiling = 0,  //四舍五入,直接输出4
+//    kCFNumberFormatterRoundFloor = 1 ,    //保留小数输出3.8
+//    kCFNumberFormatterRoundDown = 2,   //加上了人民币标志,原值输出￥3.8
+//    kCFNumberFormatterRoundUp = 3,      //本身数值乘以100后用百分号表示,输出380%
+//    kCFNumberFormatterRoundHalfEven = 4,//输出3.799999999E0
+//    kCFNumberFormatterRoundHalfDown = 5,//原值的中文表示,输出三点七九九九。。。。
+//    kCFNumberFormatterRoundHalfUp = 6//原值中文表示,输出第四
+//};</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>56989AA5-3167-4611-A83A-03E3B6CD93F6</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>数字转中文等</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaNumberTransfer(1-&gt;一)及其他格式(四舍五入,保留小数,添加人民币表示</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
