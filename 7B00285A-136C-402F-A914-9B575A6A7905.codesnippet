@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jagcd_DispatchGroups</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (void)fetchConfigurationWithCompletion:(void (^)(NSError* error))completion {
+    //参考链接 http://www.jianshu.com/p/5617ad407678
+    // Define errors to be processed when everything is complete.
+    // One error per service; in this example we'll have two
+    __block NSError *configError = nil;
+    __block NSError *preferenceError = nil;
+    
+    // Create the dispatch group
+    dispatch_group_t serviceGroup = dispatch_group_create();
+    
+    // Start the first service
+    dispatch_group_enter(serviceGroup);
+    [self.configService startWithCompletion:^(ConfigResponse *results, NSError* error){
+        // Do something with the results
+        configError = error;
+        dispatch_group_leave(serviceGroup);
+    }];
+    
+    // Start the second service
+    dispatch_group_enter(serviceGroup);
+    [self.preferenceService startWithCompletion:^(PreferenceResponse *results, NSError* error){
+        // Do something with the results
+        preferenceError = error;
+        dispatch_group_leave(serviceGroup);
+    }];
+    
+    dispatch_group_notify(serviceGroup,dispatch_get_main_queue(),^{
+        // Assess any errors
+        NSError *overallError = nil;
+        if (configError || preferenceError)
+        {
+            // Either make a new error or assign one of them to the overall error
+            overallError = configError ?: preferenceError;
+        }
+        // Now call the final completion block
+        completion(overallError);
+    });
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>7B00285A-136C-402F-A914-9B575A6A7905</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>GCD使用Dispatch Groups来管理多个Web Services请求</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaDispatchGroups</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
