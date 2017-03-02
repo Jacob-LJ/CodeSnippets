@@ -3,24 +3,24 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jablock</string>
+	<string>jablockProperty</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>&lt;#return type#&gt;(^)(&lt;#parameters...#&gt;)</string>
+	<string>@property (nonatomic, copy) void(^clickBlock)();</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>F064483E-687E-4BA1-9432-BEF11CE12460</string>
+	<string>893C0757-0187-44AD-8B7D-CBAEE2665565</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>作为参数的block</string>
+	<string>block属性</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jablock_参数中的block </string>
+	<string>jablock_block 属性定义</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>
