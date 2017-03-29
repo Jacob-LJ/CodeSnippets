@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jakeepOffsetWhenDataSourceChanged</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>&lt;#/********* 碉堡的不同数据源切换CollectionView维持对应的位置效果 star ***********/#&gt;
+    CGPoint offset = self.collectionView.contentOffset;
+    NSLog(@"^^^&amp;&amp;&amp;&amp; %@",NSStringFromCGPoint(offset));
+    [self.collectionView reloadData];
+    [self.collectionView layoutIfNeeded]; // Force layout so things are updated before resetting the contentOffset.
+    [self.collectionView setContentOffset:offset];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>216AF99C-1D92-42A0-A342-DCF4EDC3CE19</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>不同数据源切换CollectionView维持对应的位置效果</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jakeepOffsetWhenDataSourceChanged</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
