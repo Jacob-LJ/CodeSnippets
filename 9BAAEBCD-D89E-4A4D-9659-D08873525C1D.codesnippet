@@ -39,7 +39,7 @@ static const NSInteger kMaxWordNumber = 8;
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>textField字数限制, 高亮时候不限制,会自动截取高亮超出总字数部分</string>
+	<string>textField字数限制, 高亮时候不限制,会自动截取高亮超出总字数部分, 可以当输入超过限定字数自动截取符合字数字段</string>
 	<key>IDECodeSnippetTitle</key>
 	<string>jatextField_limitCharacterCount_Normal</string>
 	<key>IDECodeSnippetUserSnippet</key>
