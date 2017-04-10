@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaalertController</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"" message:@"是否保存草稿" preferredStyle:UIAlertControllerStyleAlert];
+        @weakify(self);
+        [alertVc addAction:[UIAlertAction actionWithTitle:@"不保存" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            @strongify(self);
+            [self deleteDraft];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }]];
+        [alertVc addAction:[UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            @strongify(self);
+            //保存草稿
+            [self saveAsDraft];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }]];
+        [self presentViewController:alertVc animated:YES completion:nil];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>ABDCF59E-707F-412F-A170-860A828AB543</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>alertController_系统alertView</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaalertcontroller_系统alertView</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
