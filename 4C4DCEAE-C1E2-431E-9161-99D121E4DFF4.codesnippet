@@ -9,7 +9,8 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>CGRect lastRect = [self.tableView convertRect:lastCell.frame toView:self.tableView];</string>
+	<string>CGRect lastRect = [self.tableView convertRect:lastCell.frame toView:self.tableView];
+//将cell的frame转到tableView上</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>4C4DCEAE-C1E2-431E-9161-99D121E4DFF4</string>
 	<key>IDECodeSnippetLanguage</key>
