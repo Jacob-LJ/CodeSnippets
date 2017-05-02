@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>janavigationItem_leftBarButtonItem</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Path 120"] style:UIBarButtonItemStyleDone target:self action:@selector(clickBack:)];
+    self.navigationItem.leftBarButtonItem.tintColor = RGBA(102, 102, 102, 1);
+
+- (void)clickBack:(UIBarButtonItem *)item {
+    
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B5C87FC7-1EDC-4EE0-A1B6-AAF080424CB1</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>常用导航返回箭头按钮</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>janavigationItem_leftBarButtonItem</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
