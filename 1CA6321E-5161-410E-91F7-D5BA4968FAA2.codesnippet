@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jarandomStr</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//产生100个数字+三个随机字母
+for (NSInteger i =0; i&lt;100; i++) {
+    
+    [self.dataListArry addObject:[NSString stringWithFormat:@"%ld%@",(long)i,[self shuffledAlphabet]]];
+}
+
+//产生3个随机字母
+- (NSString *)shuffledAlphabet {
+    
+    NSMutableArray * shuffledAlphabet = [NSMutableArray arrayWithArray:@[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z"]];
+    
+    NSString *strTest = [[NSString alloc]init];
+    for (int i=0; i&lt;3; i++) {
+        int x = arc4random() % 25;
+        strTest = [NSString stringWithFormat:@"%@%@",strTest,shuffledAlphabet[x]];
+    }
+    return strTest;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>1CA6321E-5161-410E-91F7-D5BA4968FAA2</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>产生3个随机字母字符串</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jarandomStr</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
