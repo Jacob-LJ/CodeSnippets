@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jalabelHeight</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>NSString *string = self.postModel.content;
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    style.lineSpacing = 5;
+    NSDictionary *attriDict = @{
+                                NSFontAttributeName : [UIFont systemFontOfSize:13],
+                                NSParagraphStyleAttributeName : style,
+                                };
+    CGSize maxSize = CGSizeMake(_chatContentViewW, MAXFLOAT);
+    CGFloat height = [string boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attriDict context:nil].size.height;</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>644C1BDB-65B5-40F5-A474-4BBC09EA721C</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>通过字符串计算LB高度</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jalabelHeight</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

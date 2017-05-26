@@ -3,23 +3,26 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jaImageView</string>
+	<string>jaSearchList</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>[&lt;#self.imageV#&gt; sd_setImageWithURL:[NSURL URLWithString:&lt;#coverImage.url#&gt;] placeholderImage:[UIImage imageNamed:@"loading_image"]];
+	<string>/*
+Formatter 时间格式 http://blog.csdn.net/klyz1314/article/details/9379537
+ 
 
-#import "UIImageView+WebCache.h"</string>
+*/
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>7A36801D-F19C-4C09-BEDD-69B14A20C130</string>
+	<string>0E7779AC-493E-4C44-AEB6-A46F0B3F9C53</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>设置ImageView的SD_Url</string>
+	<string>jaSearchList</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jaImageViewSetImageUrl</string>
+	<string>常用查询</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

@@ -9,12 +9,18 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>&lt;#/********* 碉堡的不同数据源切换CollectionView维持对应的位置效果 star ***********/#&gt;
+	<string>&lt;#/********* 不同数据源切换CollectionView维持对应的位置效果 star ***********/#&gt;
     CGPoint offset = self.collectionView.contentOffset;
     NSLog(@"^^^&amp;&amp;&amp;&amp; %@",NSStringFromCGPoint(offset));
     [self.collectionView reloadData];
     [self.collectionView layoutIfNeeded]; // Force layout so things are updated before resetting the contentOffset.
-    [self.collectionView setContentOffset:offset];</string>
+    [self.collectionView setContentOffset:offset];
+
+//    CGPoint offset = self.tableView.contentOffset;
+//    [self.tableView reloadData];
+//    [self.tableView layoutIfNeeded];
+//    [self.tableView setContentOffset:offset];
+</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>216AF99C-1D92-42A0-A342-DCF4EDC3CE19</string>
 	<key>IDECodeSnippetLanguage</key>
