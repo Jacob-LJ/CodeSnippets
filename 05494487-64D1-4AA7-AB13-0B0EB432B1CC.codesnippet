@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jaCellHeightAuto</string>
+	<string>jaCell_HeightAuto</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -26,7 +26,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>自动cell计算高度_cell仅含label</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jacellHeightAuto_justContainLabel</string>
+	<string>jaCell_HeightAuto_justContainLabel</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

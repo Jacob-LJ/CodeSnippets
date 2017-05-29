@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jaTableViewDataMethods</string>
+	<string>jaTableView_DataSourceDelegateMethods</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -35,9 +35,9 @@
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>代理数据源方法</string>
+	<string>TableView常用代理数及据源方法</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jatableViewDataMethods</string>
+	<string>jaTableView_DataSourceDelegateMethods</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

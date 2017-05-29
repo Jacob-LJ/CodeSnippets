@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jatextField_limitCharacterCount</string>
+	<string>jaTextField_limitCharacterCount</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -22,7 +22,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>textField字数限制,但可以删除(联想字母时就开始计数)</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jatextField_limitCharacterCount</string>
+	<string>jaTextField_limitCharacterCount</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

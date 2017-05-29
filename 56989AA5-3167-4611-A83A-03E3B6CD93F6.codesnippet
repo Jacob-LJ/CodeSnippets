@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jaNumberTransfer</string>
+	<string>jaNumber_Transfer</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -31,9 +31,9 @@ NSString *string = [formatter stringFromNumber:[NSNumber numberWithInt: testNum]
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>数字转中文等</string>
+	<string>数字转中文等;(1-&gt;一)及其他格式(四舍五入,保留小数,添加人民币表示</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jaNumberTransfer(1-&gt;一)及其他格式(四舍五入,保留小数,添加人民币表示</string>
+	<string>jaNumber_Transfer</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

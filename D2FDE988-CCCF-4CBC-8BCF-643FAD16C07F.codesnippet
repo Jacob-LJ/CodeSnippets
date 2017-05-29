@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jacolletionViewDelegateDataSourceMethods</string>
+	<string>jaColletionView_DelegateDataSourceMethods</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -29,7 +29,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>collectionViewDelegate和DataSource方法</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jacolletionViewDelegateDataSourceMethods</string>
+	<string>jaColletionView_DelegateDataSourceMethods</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

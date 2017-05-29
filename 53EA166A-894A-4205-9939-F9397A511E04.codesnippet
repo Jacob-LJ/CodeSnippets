@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jasegmentController</string>
+	<string>jaSegmentController</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -186,7 +186,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>ja设置导航栏下segment的Controller</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jasegmentController_设置segmentController</string>
+	<string>jaSegmentController_设置segmentController</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jainitView</string>
+	<string>jaView_InitMethods</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>ClassImplementation</string>
@@ -36,7 +36,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>View 的初始化方法(init/initWithFrame/initWithCoder)</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jainitView</string>
+	<string>jaView_InitMethods</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

@@ -9,15 +9,7 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>//
-//  &lt;#DiscoverNoticeViewWatchController.m#&gt;
-//  hunlimao
-//
-//  Created by Jacob on &lt;#2017/2/10#&gt;.
-//  Copyright © &lt;#2017#&gt;年 taoximao. All rights reserved.
-//
-
-#import "DiscoverNoticeViewWatchController.h"
+	<string>#import "DiscoverNoticeViewWatchController.h"
 //view
 #import "DiscoverNoticeWatchCell.h"
 //lib
@@ -184,9 +176,9 @@
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>tableViewController只带上下拉动作</string>
+	<string>TableViewController只带上下拉动作</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jatableViewController_带上下拉</string>
+	<string>jaTableViewController_带上下拉</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

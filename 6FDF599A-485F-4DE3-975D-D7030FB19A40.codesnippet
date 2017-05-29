@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jashadowsetting</string>
+	<string>jaView_ShadowSetting</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    self.menuView.layer.shadowOpacity = 1;
-    self.menuView.layer.shadowColor = RGBA(0, 0, 0, 0.4).CGColor;
-    self.menuView.layer.shadowOpacity = 6;
-    self.menuView.layer.shadowOffset = CGSizeMake(0, 2);
+	<string>    &lt;#self.menuView#&gt;.layer.shadowOpacity = 1;
+    &lt;#self.menuView#&gt;.layer.shadowColor = RGBA(0, 0, 0, 0.4).CGColor;
+    &lt;#self.menuView#&gt;.layer.shadowOpacity = 6;
+    &lt;#self.menuView#&gt;.layer.shadowOffset = CGSizeMake(0, 2);
 </string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>6FDF599A-485F-4DE3-975D-D7030FB19A40</string>
@@ -21,7 +21,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>view阴影属性设置</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>javiewShadowSetting</string>
+	<string>jaView_ShadowSetting</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

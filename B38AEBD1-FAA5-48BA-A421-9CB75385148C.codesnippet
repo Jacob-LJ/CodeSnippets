@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jatableViewRefreshHeaderFooterSetting</string>
+	<string>jaTableView_RefreshHeaderFooterSetting</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -20,7 +20,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>常用refreshHeader和Footer设置</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jatableViewRefreshHeaderFooterSetting</string>
+	<string>jaTableView_RefreshHeaderFooterSetting</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

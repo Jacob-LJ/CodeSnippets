@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jaJSONModelKeyMapper</string>
+	<string>jaJSONModel_KeyMapper</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -32,7 +32,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>另命名jsonModel属性避开关键字如description等</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jaJSONModelKeyMapper</string>
+	<string>jaJSONModel_KeyMapper</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

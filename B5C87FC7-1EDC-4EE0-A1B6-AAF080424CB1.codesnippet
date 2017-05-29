@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>janavigationItem_leftBarButtonItem</string>
+	<string>jaNavigationItem_leftBarButtonItem</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -23,7 +23,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>常用导航返回箭头按钮</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>janavigationItem_leftBarButtonItem</string>
+	<string>jaNavigationItem_leftBarButtonItem</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

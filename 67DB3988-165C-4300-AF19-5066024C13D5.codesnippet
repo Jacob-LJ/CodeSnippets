@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jadispatch_set_target_queue</string>
+	<string>jaDispatch_set_target_queue</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>ClassImplementation</string>
@@ -49,7 +49,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>GCD_同步执行多个串行队列</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jaDispatch_set_target_queue-将多个serial_queue同步执行</string>
+	<string>jaDispatch_set_target_queue-同步执行多个serial_queue</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

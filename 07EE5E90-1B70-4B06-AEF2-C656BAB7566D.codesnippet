@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jatextfield_limit_simple</string>
+	<string>jaTextfield_limit_simple</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -37,9 +37,9 @@ static const NSInteger kMaxWordNumber = 8;
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>textField简单限制字数,不然输入</string>
+	<string>textField简单限制字数,不能输入</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jatextfield_limit_simple</string>
+	<string>jaTextfield_limit_simple</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

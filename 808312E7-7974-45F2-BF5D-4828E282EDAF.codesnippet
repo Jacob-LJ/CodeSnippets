@@ -3,19 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jastaticconst</string>
+	<string>jaStaticConst</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>TopLevel</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>static const &lt;#CGFloat#&gt; k&lt;#AnimationDuration#&gt; = &lt;#0.25#&gt;;&lt;#//放在.m则只在.m(编译单元内有效的),带k表示当前编译单元有效#&gt;</string>
+	<string>static const &lt;#CGFloat#&gt; k&lt;#AnimationDuration#&gt; = &lt;#0.25#&gt;;</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>808312E7-7974-45F2-BF5D-4828E282EDAF</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>StaticConst_静态常量</string>
+	<string>StaticConst_静态常量//放在.m则只在.m(编译单元内有效的),带k表示只用于当前编译单元</string>
 	<key>IDECodeSnippetTitle</key>
 	<string>jaStaticConst_静态常量</string>
 	<key>IDECodeSnippetUserSnippet</key>

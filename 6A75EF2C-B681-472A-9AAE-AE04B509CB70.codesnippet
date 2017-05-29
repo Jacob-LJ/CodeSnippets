@@ -3,21 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jaTableViewCtontroller_pullUp_PopMenu</string>
+	<string>jaTableViewController_pullUp_PopMenu</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>//
-//  &lt;#DiscoverNoticeReceiveCommentController.m#&gt;
-//  hunlimao
-//
-//  Created by Jacob on &lt;#2017/2/10#&gt;.
-//  Copyright © &lt;#2017#&gt;年 taoximao. All rights reserved.
-//
-
-#import "DiscoverNoticeReceiveCommentController.h"
+	<string>#import "DiscoverNoticeReceiveCommentController.h"
 //view
 #import "DiscoverNoticeLikePraiseCell.h"
 #import "HLMPopMenuView.h"
@@ -254,7 +246,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>TableView控制器(上下拉,popMenu)</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jatableViewController_带上下拉和popMenu</string>
+	<string>jaTableViewController_带上下拉和popMenu</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

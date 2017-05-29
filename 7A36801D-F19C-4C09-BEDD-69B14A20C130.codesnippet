@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jaImageView</string>
+	<string>jaImageView_SetImageUrl</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -19,7 +19,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>设置ImageView的SD_Url</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jaImageViewSetImageUrl</string>
+	<string>jaImageView_SetImageUrl</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

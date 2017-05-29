@@ -54,7 +54,7 @@ layer.opacity = 1;
 	<key>IDECodeSnippetSummary</key>
 	<string>渐变层使用</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jagradientLayer</string>
+	<string>jaGradientLayer</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

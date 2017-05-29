@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jazoomOutHeaderTableViewController</string>
+	<string>jaTableViewController_zoomOutHeader</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -354,7 +354,7 @@ static int _oldPosition;
 	<key>IDECodeSnippetSummary</key>
 	<string>头部放大且渐变导航栏的TableViewController</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jazoomOutHeaderTableViewController</string>
+	<string>jaTableViewController_zoomOutHeader</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

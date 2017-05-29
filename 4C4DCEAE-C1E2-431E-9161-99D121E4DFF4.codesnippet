@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jaconvertRectToView</string>
+	<string>jaConvertRect_ToView</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -18,7 +18,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>convertRect:toView:的使用例子, 将cell的frame转到tableView上</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jaconvertRectDemo</string>
+	<string>jaConvertRect_Demo</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

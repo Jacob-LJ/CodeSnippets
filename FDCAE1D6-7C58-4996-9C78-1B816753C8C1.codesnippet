@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jaupOrDownScroll</string>
+	<string>jaScrollView_upOrDownJudge</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -36,7 +36,7 @@ float lastContentOffset;
 	<key>IDECodeSnippetSummary</key>
 	<string>判断ScrollView上滚还是下滚</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jaupOrDownScroll</string>
+	<string>jaScrollView_upOrDownJudge</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

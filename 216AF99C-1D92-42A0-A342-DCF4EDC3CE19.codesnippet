@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jakeepOffsetWhenDataSourceChanged</string>
+	<string>jaCollectionView_keepOffsetWhenDataSourceChanged</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>&lt;#/********* 不同数据源切换CollectionView维持对应的位置效果 star ***********/#&gt;
+	<string>
     CGPoint offset = self.collectionView.contentOffset;
     NSLog(@"^^^&amp;&amp;&amp;&amp; %@",NSStringFromCGPoint(offset));
     [self.collectionView reloadData];
@@ -28,7 +28,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>不同数据源切换CollectionView维持对应的位置效果</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jakeepOffsetWhenDataSourceChanged</string>
+	<string>jaCollectionView_keepOffsetWhenDataSourceChanged</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

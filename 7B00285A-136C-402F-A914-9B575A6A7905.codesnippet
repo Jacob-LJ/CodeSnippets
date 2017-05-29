@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jadispatchGroups</string>
+	<string>jaDispatchGroups_magageMutiRequest</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -54,7 +54,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>GCD使用Dispatch Groups来管理多个Web Services请求</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jaDispatchGroups</string>
+	<string>jaDispatchGroups_magageMutiRequest</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

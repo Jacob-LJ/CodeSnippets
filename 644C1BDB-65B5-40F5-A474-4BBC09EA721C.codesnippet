@@ -3,13 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jalabelHeight</string>
+	<string>jaLabel_AttributeLabel_Height</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>NSString *string = self.postModel.content;
+	<string>NSString *string = &lt;#self.postModel.content#&gt;
+;
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     style.lineSpacing = 5;
     NSDictionary *attriDict = @{
@@ -25,7 +26,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>通过字符串计算LB高度</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jalabelHeight</string>
+	<string>jaLabel_AttributeLabel_Height</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

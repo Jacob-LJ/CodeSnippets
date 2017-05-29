@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jarandomStr</string>
+	<string>jaRandom_String</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -32,9 +32,9 @@ for (NSInteger i =0; i&lt;100; i++) {
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>产生3个随机字母字符串</string>
+	<string>3个随机字母字符串</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jarandomStr</string>
+	<string>jaRandom_String</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

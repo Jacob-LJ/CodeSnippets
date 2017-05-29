@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jaalertController</string>
+	<string>jaAlertcontroller_SystemAlertView</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -30,7 +30,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>alertController_系统alertView</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jaalertcontroller_系统alertView</string>
+	<string>jaAlertcontroller_系统alertView</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
