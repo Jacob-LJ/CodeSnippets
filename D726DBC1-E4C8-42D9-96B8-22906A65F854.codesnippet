@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jaDesc1</string>
+	<string>jaDesc2</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>/**&lt; &lt;#desc#&gt; */</string>
+	<string>///&lt; &lt;#desc#&gt;</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>CFA04A96-6F06-4AB2-9532-CA0C9EC36EFF</string>
+	<string>D726DBC1-E4C8-42D9-96B8-22906A65F854</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
 	<string>desc 放在行后面才有效</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jaDesc1</string>
+	<string>jaDesc2</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
