@@ -13,6 +13,9 @@
     &lt;#self.menuView#&gt;.layer.shadowColor = RGBA(0, 0, 0, 0.4).CGColor;
     &lt;#self.menuView#&gt;.layer.shadowOpacity = 6;
     &lt;#self.menuView#&gt;.layer.shadowOffset = CGSizeMake(0, 2);
+    //[self.contentView layoutIfNeeded];
+    CGRect shadowRect = CGRectInset(&lt;#self.menuView#&gt;.bounds, -10, -10);
+    &lt;#self.menuView#&gt;.layer.shadowPath = [UIBezierPath bezierPathWithRect:shadowRect].CGPath;//扩大阴影
 </string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>6FDF599A-485F-4DE3-975D-D7030FB19A40</string>
