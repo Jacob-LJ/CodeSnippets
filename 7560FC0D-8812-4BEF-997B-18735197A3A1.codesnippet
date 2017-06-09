@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaTestData_SectionsStringArray</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark - test
+- (void)prepareData {
+    self.dataListArry = [NSMutableArray array];
+    //数据个数
+    NSInteger dataCount = 17;
+    for (NSInteger i =0; i&lt;dataCount; i++) {
+        [self.dataListArry addObject:[NSString stringWithFormat:@"%ld%@",(long)i,[self shuffledAlphabet]]];
+    }
+    
+    //按指定个数分组
+    NSInteger countPerSection = 4; //每组个数
+    NSMutableArray *temSectionArray = [NSMutableArray array];
+    NSInteger length = self.dataListArry.count;
+    for (int location = 0; location &lt; length; location += countPerSection) {
+        NSInteger size = length - location;
+        if (size &gt; 3) size = 3;
+        [temSectionArray addObject:[self.dataListArry subarrayWithRange:NSMakeRange(location, size)]];
+    }
+    self.sectionArray = temSectionArray;
+}
+
+//产生3个随机字母
+- (NSString *)shuffledAlphabet {
+    
+    NSMutableArray * shuffledAlphabet = [NSMutableArray arrayWithArray:@[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z"]];
+    
+    NSString *strTest = [[NSString alloc]init];
+    for (int i=0; i&lt;3; i++) {
+        int x = arc4random() % 25;
+        strTest = [NSString stringWithFormat:@"%@%@",strTest,shuffledAlphabet[x]];
+    }
+    return strTest;
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>7560FC0D-8812-4BEF-997B-18735197A3A1</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>模拟多组字符串数组测试数据</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaTestData_SectionsStringArray</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

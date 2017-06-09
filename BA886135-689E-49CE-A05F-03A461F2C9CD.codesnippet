@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaCollectionView_SegmentControlScrollToSpecialSEction</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#import "WINewTemplateController.h"
+//vc
+#import "PSLPackageDetailController.h"
+//view
+#import "WINewTemplateCCell.h"
+//util
+#import "LPSegmentedView.h"
+
+
+static CGFloat const kSegmentedViewH = 44;
+static CGFloat const kCollectionViewRLMargin = 20;
+static CGFloat const kItemBetweenMargin = 10;
+static CGFloat const kColumnNum = 2.0;
+
+@interface WINewTemplateController ()&lt;LPSegmentedViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout&gt;
+
+@property (nonatomic, weak) LPSegmentedView *segmentedView;
+@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, assign, getter=isRespondScroll) BOOL respondScroll; /**&lt; 响应滚动 */
+
+@property (nonatomic, strong) NSMutableArray *dataListArry;
+@property (nonatomic, strong) NSArray *sectionArray;
+
+@property (nonatomic, assign) CGSize itemSize;
+
+@end
+
+@implementation WINewTemplateController
+
+- (instancetype)init {
+    if (self = [super init]) {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.view.backgroundColor = RGBA(242, 242, 242, 1);
+    
+    [self setUpNav];
+    [self setUpCollectionView];
+    [self prepareData];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+- (void)setUpNav {
+    UILabel *titleLB = [[UILabel alloc] init];
+    titleLB.text = @"新建页面";
+    titleLB.textColor = RGBA(102, 102, 102, 1);
+    titleLB.font = [UIFont systemFontOfSize:16];
+    [titleLB sizeToFit];
+    self.navigationItem.titleView = titleLB;
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"webView_close"] style:UIBarButtonItemStylePlain target:self action:@selector(close)];
+    self.navigationItem.rightBarButtonItem = rightItem;
+}
+
+- (void)setUpCollectionView {
+    self.respondScroll = YES;
+    
+    CGFloat itemW = ((HLMScreenW - 2*kCollectionViewRLMargin) - (kColumnNum - 1)*kItemBetweenMargin) / kColumnNum;
+    CGFloat itemH = itemW * 270.0 / 162.0;
+    self.itemSize = CGSizeMake(itemW, itemH);
+    
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.itemSize = self.itemSize;
+    flowLayout.minimumLineSpacing = 0;
+    flowLayout.minimumInteritemSpacing = kItemBetweenMargin;
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    flowLayout.sectionInset = UIEdgeInsetsMake(0, kCollectionViewRLMargin, 0, kCollectionViewRLMargin);
+    
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, HLMNavBarH+kSegmentedViewH, HLMScreenW, HLMScreenH-HLMNavBarH-kSegmentedViewH) collectionViewLayout:flowLayout];
+    collectionView.delegate = self;
+    collectionView.dataSource = self;
+    collectionView.backgroundColor = self.view.backgroundColor;
+    [self.view addSubview:collectionView];
+    self.collectionView = collectionView;
+    
+    //注册cell
+    [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([WINewTemplateCCell class]) bundle:nil] forCellWithReuseIdentifier:WINewTemplateCCellID];
+}
+
+- (void)setUpSeg {
+    LPSegmentedView *segmentedView = [[LPSegmentedView alloc] initWithFrame:CGRectMake(0, HLMNavBarH, HLMScreenW, kSegmentedViewH)];
+    segmentedView.backgroundColor = [UIColor whiteColor];
+    segmentedView.segmentedDelegate = self;
+    
+    NSMutableArray *itemsArray = [NSMutableArray array];
+    [self.sectionArray enumerateObjectsUsingBlock:^(NSArray *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [itemsArray addObject:obj.firstObject];
+    }];
+    
+    segmentedView.items = itemsArray;
+//    segmentedView.normalColor = RGBA(&lt;#R#&gt;, &lt;#G#&gt;, &lt;#B#&gt;, &lt;#A#&gt;);
+//    segmentedView.selectColor = RGBA(&lt;#R#&gt;, &lt;#G#&gt;, &lt;#B#&gt;, &lt;#A#&gt;);
+    segmentedView.firstButtonMairgin = 20;
+    segmentedView.indicatorheight = 2;
+    segmentedView.showHalfItemStyle = YES;
+    segmentedView.halfItemIndex = 4;
+    
+    segmentedView.layer.shadowOpacity = 1;
+    segmentedView.layer.shadowColor = RGBA(0, 0, 0, 0.1).CGColor;
+    segmentedView.layer.shadowOpacity = 1;
+    segmentedView.layer.shadowOffset = CGSizeMake(0, 2);
+
+    [self.view addSubview:segmentedView];
+    self.segmentedView = segmentedView;
+}
+
+#pragma mark - UICollectionViewDelegate, UICollectionViewDataSource
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return self.sectionArray.count;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    NSArray *array = self.sectionArray[section];
+    return array.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    WINewTemplateCCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:WINewTemplateCCellID forIndexPath:indexPath];
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    if (!self.isRespondScroll) return;
+    
+    if (scrollView.contentOffset.y &lt; 20) {
+        self.segmentedView.scrollToIndex = 0;
+        return;
+    }
+    
+    if (scrollView.contentOffset.y &gt; scrollView.contentSize.height - scrollView.frame.size.height - 20) {
+        self.segmentedView.scrollToIndex = self.segmentedView.items.count-1;
+        return;
+    }
+    
+    
+    //1. 获取在滚动滚到的可是范围内所有元素的布局参数
+    NSArray&lt; UICollectionViewLayoutAttributes *&gt; *attributes = [self.collectionView.collectionViewLayout layoutAttributesForElementsInRect:CGRectMake(scrollView.contentOffset.x, scrollView.contentOffset.y, self.collectionView.frame.size.width, self.collectionView.frame.size.height)];
+    //2. 计算在可视范围的距离中心线最近的Item
+    CGFloat minCenterX = CGFLOAT_MAX;
+    UICollectionViewLayoutAttributes *closingCenterAttri = nil;
+    CGFloat collectionViewCenterX = scrollView.contentOffset.x +
+    self.collectionView.frame.size.width * 0.5;
+    for (UICollectionViewLayoutAttributes *attribute in attributes) {
+        if (attribute.representedElementCategory == UICollectionElementCategoryCell) {
+            if(ABS(attribute.center.x - collectionViewCenterX) &lt; ABS(minCenterX)){
+                minCenterX = attribute.center.x - collectionViewCenterX;
+                closingCenterAttri = attribute;
+            }
+        }
+    }
+    if (closingCenterAttri) {
+        NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:closingCenterAttri.center];
+        self.segmentedView.scrollToIndex = indexPath.section;
+    }
+}
+
+//减速停止滚动的时候展示
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (decelerate) {
+        [self scrollViewDidEndDecelerating:scrollView];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    self.respondScroll = YES;
+}
+
+#pragma mark - LPSegmentedViewDelegate
+- (void)segmentedView:(LPSegmentedView *)segmentedView didChangeIndex:(NSInteger)index {
+    
+    UICollectionViewLayoutAttributes *attributes;
+    if (index != 0) { //iOS 10之前index==0会导致崩溃,所以添加保护
+        attributes = [self.collectionView.collectionViewLayout layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:index]];
+    }
+    self.respondScroll = NO;
+    [self.collectionView setContentOffset:CGPointMake(0, attributes.frame.origin.y - self.collectionView.contentInset.top) animated:YES];
+    
+}
+
+#pragma mark - Private
+- (void)close {
+    
+}
+
+#pragma mark - setter &amp; getter
+- (void)setSectionArray:(NSArray *)sectionArray {
+    _sectionArray = sectionArray;
+    [self.collectionView reloadData];
+    [self setUpSeg];
+    self.segmentedView.scrollToIndex = 0;
+}
+
+#pragma mark - test
+- (void)prepareData {
+    self.dataListArry = [NSMutableArray array];
+    //数据个数
+    NSInteger dataCount = 17;
+    for (NSInteger i =0; i&lt;dataCount; i++) {
+        [self.dataListArry addObject:[NSString stringWithFormat:@"%ld%@",(long)i,[self shuffledAlphabet]]];
+    }
+    
+    //按指定个数分组
+    NSInteger countPerSection = 4; //每组个数
+    NSMutableArray *temSectionArray = [NSMutableArray array];
+    NSInteger length = self.dataListArry.count;
+    for (int location = 0; location &lt; length; location += countPerSection) {
+        NSInteger size = length - location;
+        if (size &gt; countPerSection) size = countPerSection;
+        [temSectionArray addObject:[self.dataListArry subarrayWithRange:NSMakeRange(location, size)]];
+    }
+    self.sectionArray = temSectionArray;
+}
+
+//产生3个随机字母
+- (NSString *)shuffledAlphabet {
+    
+    NSMutableArray * shuffledAlphabet = [NSMutableArray arrayWithArray:@[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z"]];
+    
+    NSString *strTest = [[NSString alloc]init];
+    for (int i=0; i&lt;3; i++) {
+        int x = arc4random() % 25;
+        strTest = [NSString stringWithFormat:@"%@%@",strTest,shuffledAlphabet[x]];
+    }
+    return strTest;
+}
+
+
+@end
+
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>BA886135-689E-49CE-A05F-03A461F2C9CD</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>带Segment的锚点滚动collectionView</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaCollectionView_SegmentControlScrollToSpecialSEction</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

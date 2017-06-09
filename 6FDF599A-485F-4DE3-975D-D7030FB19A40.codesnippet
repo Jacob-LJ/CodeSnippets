@@ -11,7 +11,7 @@
 	<key>IDECodeSnippetContents</key>
 	<string>    &lt;#self.menuView#&gt;.layer.shadowOpacity = 1;
     &lt;#self.menuView#&gt;.layer.shadowColor = RGBA(0, 0, 0, 0.4).CGColor;
-    &lt;#self.menuView#&gt;.layer.shadowOpacity = 6;
+    &lt;#self.menuView#&gt;.layer.shadowOpacity = 1;
     &lt;#self.menuView#&gt;.layer.shadowOffset = CGSizeMake(0, 2);
     //[self.contentView layoutIfNeeded];
     CGRect shadowRect = CGRectInset(&lt;#self.menuView#&gt;.bounds, -10, -10);

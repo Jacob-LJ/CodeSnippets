@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaNavBarShoadowSetting</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    //在baseViewCon个roller中将seperator线隐藏
+    self.navigationController.navigationBar.layer.shadowOpacity = 1;
+    self.navigationController.navigationBar.layer.shadowColor = RGBA(0, 0, 0, 0.1).CGColor;
+    self.navigationController.navigationBar.layer.shadowOpacity = 4;
+    self.navigationController.navigationBar.layer.shadowOffset = CGSizeMake(0, 2);</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>8CC5342E-4A5B-4E10-A39D-16775FFBB490</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>NavBar底线阴影设置</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaNavBarShoadowSetting</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaArrayDividedIntoArrays</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//按指定个数分组
+    NSMutableArray *temSectionArray = [NSMutableArray array];
+    NSInteger length = self.dataListArry.count;
+    for (int location = 0; location &lt; length; location += 3) {
+        NSInteger size = length - location;
+        if (size &gt; 3) size = 3;
+        [temSectionArray addObject:[self.dataListArry subarrayWithRange:NSMakeRange(location, size)]];
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>E9E9534F-DA7D-4915-BD6F-BC5DBDAA4D90</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>将一个数组按指定指定个数分成多组</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaArrayDividedIntoArrays</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
