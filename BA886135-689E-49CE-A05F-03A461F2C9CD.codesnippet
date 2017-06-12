@@ -85,7 +85,6 @@ static CGFloat const kColumnNum = 2.0;
     flowLayout.minimumInteritemSpacing = kItemBetweenMargin;
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     flowLayout.sectionInset = UIEdgeInsetsMake(0, kCollectionViewRLMargin, 0, kCollectionViewRLMargin);
-    flowLayout.footerReferenceSize = CGSizeMake(HLMScreenW, 90);
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, HLMNavBarH+kSegmentedViewH, HLMScreenW, HLMScreenH-HLMNavBarH-kSegmentedViewH) collectionViewLayout:flowLayout];
     collectionView.delegate = self;
@@ -97,7 +96,7 @@ static CGFloat const kColumnNum = 2.0;
     //注册cell
     [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([WINewTemplateCCell class]) bundle:nil] forCellWithReuseIdentifier:WINewTemplateCCellID];
     //    //注册Footer
-    [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([WINewTemplateFooterView class]) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:WINewTemplateFooterViewID];
+    [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([WINewTemplateFooterView class]) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:WINewTemplateFooterViewID];
 }
 
 - (void)setUpSeg {
@@ -142,13 +141,21 @@ static CGFloat const kColumnNum = 2.0;
     return cell;
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    if (section == self.sectionArray.count - 1) {
+        return CGSizeMake(HLMScreenW, 90);
+    } else {
+        return CGSizeZero;
+    }
+}
+
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    UICollectionReusableView *reusableview = nil;
     
+    UICollectionReusableView *reusableview = nil;
     if (kind == UICollectionElementKindSectionFooter) {
         if (indexPath.section == self.sectionArray.count - 1) {
-            WINewTemplateFooterView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:WINewTemplateFooterViewID forIndexPath:indexPath];
+            WINewTemplateFooterView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:WINewTemplateFooterViewID forIndexPath:indexPath];
             reusableview = footerView;
         }
     }
@@ -276,12 +283,12 @@ static CGFloat const kColumnNum = 2.0;
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>带Segment的锚点滚动collectionView</string>
+	<string>带Segment的锚点滚动collectionView_带SectionFooterView</string>
 	<key>IDECodeSnippetTitle</key>
 	<string>jaCollectionView_SegmentControlScrollToSpecialSEction</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>0</integer>
+	<integer>2</integer>
 </dict>
 </plist>
