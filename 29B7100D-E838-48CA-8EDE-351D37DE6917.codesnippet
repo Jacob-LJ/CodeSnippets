@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaPhotoBrowser</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//photoBrowser
+#import "HLMPhotoBrowserAdapter.h"
+#import "HLMPhotoBrowser.h"
+
+@property (nonatomic, strong) HLMPhotoBrowserAdapter *photoBrowserDelegate;
+
+- (void)photoBrowserWithPhotoUrls:(NSArray&lt;MiniImage *&gt; *)images selectedPhotoIndex:(NSInteger)photoIndex {
+    self.photoBrowserDelegate = [[HLMPhotoBrowserAdapter alloc] initWithImageList:images];
+    HLMPhotoBrowser *photoBrowser = [[HLMPhotoBrowser alloc] initWithDelegate:self.photoBrowserDelegate];
+    photoBrowser.dismissWhenSingleTap = YES;
+    [photoBrowser setCurrentPhotoIndex:photoIndex];
+    HLMWeakSelf
+    [self presentViewController:photoBrowser animated:YES completion:^{
+        
+    }];
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>29B7100D-E838-48CA-8EDE-351D37DE6917</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>预览大图</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaPhotoBrowser</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

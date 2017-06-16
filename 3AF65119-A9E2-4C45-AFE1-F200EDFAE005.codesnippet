@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaTableViewCell_leftMultiBtns_TrickWay&lt;iOS8+&gt;</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    //trick way througth color property, 细节上需要自己调整，但字体大小颜色可控
+    // this just convert view to `UIImage`
+    UIImage *(^imageWithView)(UIView *) = ^(UIView *view) {
+        
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
+        [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return image;
+    };
+    
+    // This is where the magic happen,
+    // The width and height must be dynamic (it's up to you how to implement it)
+    // to keep the alignment of the label in place
+    //
+    UIColor *(^getColorWithLabelText)(NSString*, UIColor*, UIColor*) = ^(NSString *text, UIColor *textColor, UIColor *bgColor) {
+        
+        UILabel *lbDelete = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 90)];
+        lbDelete.font = [UIFont boldSystemFontOfSize:12];
+        lbDelete.text = text;
+        lbDelete.textAlignment = NSTextAlignmentCenter;
+        lbDelete.textColor = textColor;
+        lbDelete.backgroundColor = bgColor;
+        
+        return [UIColor colorWithPatternImage:imageWithView(lbDelete)];
+    };
+    
+    // The `title` which is `@"   "` is important it
+    // gives you the space you needed for the
+    // custom label `47[estimated width], 40[cell height]` on this example
+    //
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"      " handler:^(UITableViewRowAction *_Nonnull action, NSIndexPath * _Nonnull indexPath) {
+                    NSLog(@"删除");
+                    [tableView setEditing:NO];
+                }];
+
+    deleteAction.backgroundColor = getColorWithLabelText(@"删除", [UIColor whiteColor], themeColor);
+    
+    UITableViewRowAction *moreAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"      " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+                    NSLog(@"不关注");
+                    [tableView setEditing:NO];
+                }];
+    moreAction.backgroundColor = getColorWithLabelText(@"不公开", [UIColor whiteColor], RGBA(153, 153, 153, 1));
+    
+    return @[deleteAction, moreAction];
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>3AF65119-A9E2-4C45-AFE1-F200EDFAE005</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>tableCell左划多个按钮,自己估算字体宽的取巧方法&lt;iOS8+&gt;</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaTableViewCell_leftMultiBtns_TrickWay&lt;iOS8+&gt;</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

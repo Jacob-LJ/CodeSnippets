@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaSegement_MainVC_Sub_TableVC</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#import "WIAttendanceCountMainController.h"
+//vc
+#import "WIAttendanceAllContoller.h"
+#import "WIAttendancePresentedController.h"
+#import "WIAttendanceUndeterminedController.h"
+#import "WIAttendanceEngagedController.h"
+//model
+#import "WeddingTaskGroup.h"
+//view
+#import "LPSegmentedView.h"
+//category
+#import "UIView+Frame.h"
+
+static CGFloat const kSegmentedViewH = 40;
+
+@interface WIAttendanceCountMainController ()&lt;LPSegmentedViewDelegate, UIScrollViewDelegate&gt;
+
+@property (nonatomic, weak) LPSegmentedView *segmentView;
+@property (weak, nonatomic) UIScrollView *contentView;
+@property (nonatomic, strong) NSArray *viewControllers;
+
+@end
+
+@implementation WIAttendanceCountMainController
+
+- (instancetype)init {
+    if (self = [super init]) {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self setUpInit];
+    [self setUpNav];
+    [self setUpTopView];
+    [self setUpContentView];
+    [self segmentedView:self.segmentView didChangeIndex:0];
+    self.contentView.contentSize = CGSizeMake(self.contentView.hlm_width * self.segmentView.items.count, 0);
+}
+
+#pragma mark - setUp
+- (void)setUpInit {
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    CGRect viewBounds = CGRectMake(0, 0, HLMScreenW, HLMScreenH - kSegmentedViewH - HLMNavBarH);
+    WIAttendanceAllContoller *VC1 = [[WIAttendanceAllContoller alloc] init];
+    VC1.viewBounds = viewBounds;
+    WIAttendancePresentedController *VC2 = [[WIAttendancePresentedController alloc] init];
+    VC2.viewBounds = viewBounds;
+    WIAttendanceUndeterminedController *VC3 = [[WIAttendanceUndeterminedController alloc] init];
+    VC3.viewBounds = viewBounds;
+    WIAttendanceEngagedController *VC4 = [[WIAttendanceEngagedController alloc] init];
+    VC4.viewBounds = viewBounds;
+    self.viewControllers = @[VC1, VC2, VC3, VC4];
+    
+    for (UIViewController *VC in self.viewControllers) {
+        [self addChildViewController:VC];
+    }
+    
+}
+
+- (void)setUpNav {
+    self.title = @"出席统计";
+}
+
+- (void)setUpTopView {
+
+    LPSegmentedView *segmentView = [[LPSegmentedView alloc] initWithFrame:CGRectMake(0, HLMNavBarH, HLMScreenW, kSegmentedViewH)];
+    segmentView.backgroundColor = [UIColor whiteColor];
+    segmentView.segmentedDelegate = self;
+    segmentView.items = @[@"全部", @"出席", @"待定", @"有事"];
+    segmentView.showIndicator = YES;
+    segmentView.indicatorheight = 4;
+    segmentView.indicatorBottomMargin = 4;
+    segmentView.indicatorCornerRadius = 2;
+    segmentView.indicatorColor = themeColor;
+    segmentView.showSeparate = YES;
+    segmentView.separatorInset = UIEdgeInsetsMake(15, 0, 15, 0);
+    segmentView.separateColor = RGBA(227, 227, 227, 1);
+    segmentView.averageButton = YES;
+    segmentView.suitIndicatorWidth = YES;
+    segmentView.suitExpandIndicatorWidth = YES;
+    segmentView.expandWidth = -22.0;
+    [self.view addSubview:segmentView];
+    self.segmentView = segmentView;
+    
+}
+
+- (void)setUpContentView {
+    
+    UIScrollView *contentView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.segmentView.hlm_bottom, HLMScreenW, HLMScreenH - self.segmentView.hlm_bottom)];
+    contentView.scrollEnabled = NO;
+    contentView.pagingEnabled = YES;
+    contentView.showsVerticalScrollIndicator = NO;
+    contentView.showsHorizontalScrollIndicator = NO;
+    contentView.delegate = self;
+    contentView.backgroundColor = themeBackgroundColor;
+    
+    [self.view addSubview:contentView];
+    self.contentView = contentView;
+    
+}
+
+#pragma mark - LPSegmentedViewDelegate
+
+- (void)segmentedView:(LPSegmentedView *)segmentedView didChangeIndex:(NSInteger)index {
+    
+    [self.contentView setContentOffset:CGPointMake(index * self.contentView.hlm_width, 0) animated:YES];
+    
+    if (!self.childViewControllers.count) return;
+    
+    UIViewController *VC = self.viewControllers[index];
+//    if (VC.isViewLoaded) {
+//        [VC viewWillAppear:YES];
+//        return;
+//    }
+    
+    [self.contentView addSubview:VC.view];
+    VC.view.frame = CGRectMake(index * self.contentView.hlm_width, 0, self.contentView.hlm_width, self.contentView.hlm_height);
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSInteger index = scrollView.contentOffset.x / scrollView.hlm_width;
+    self.segmentView.selectedIndex = index;
+}
+
+@end
+
+////// 用于sub Controller 子类view 设置
+#import "HLMBaseViewController.h"
+
+@interface WIAttendanceBaseSubController : HLMBaseViewController
+
+@property (nonatomic, assign) CGRect viewBounds;
+
+@end
+
+
+////// 子类tableViewController 基础样式
+#import "WIAttendanceAllContoller.h"
+//view
+#import "DiscoverNoticeWatchCell.h"
+
+@interface WIAttendanceAllContoller ()&lt;UITableViewDelegate, UITableViewDataSource&gt;
+
+@property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, assign) NSUInteger page;
+
+@end
+
+@implementation WIAttendanceAllContoller
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self setUpInit];
+    [self setUpTableView];
+    [self prepareData];
+    
+}
+
+- (void)setUpInit {
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.view.backgroundColor = themeBackgroundColor;
+}
+
+- (void)setUpTableView {
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.viewBounds style:UITableViewStyleGrouped];
+    [self.view addSubview:tableView];
+    _tableView = tableView;
+    tableView.backgroundColor = themeBackgroundColor;
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DiscoverNoticeWatchCell class]) bundle:nil] forCellReuseIdentifier:DiscoverNoticeWatchCellID];
+}
+
+
+#pragma mark - UITableViewDelegate &amp; UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    DiscoverNoticeWatchCell *cell = [tableView dequeueReusableCellWithIdentifier:DiscoverNoticeWatchCellID];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 72;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.01;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.01;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+#pragma mark - setter &amp; getter
+- (void)setDataArray:(NSMutableArray *)dataArray {
+    _dataArray = dataArray;
+    [self.tableView reloadData];
+}
+
+#pragma mark - test
+- (void)prepareData {
+    NSMutableArray *arrayM = [NSMutableArray array];
+    //数据个数
+    NSInteger dataCount = 20;
+    for (NSInteger i=0; i&lt;dataCount; i++) {
+        [arrayM addObject:[NSString stringWithFormat:@"%ld%@",(long)i,[self shuffledAlphabet]]];
+    }
+    self.dataArray = arrayM;
+}
+
+//产生3个随机字母
+- (NSString *)shuffledAlphabet {
+    NSMutableArray * shuffledAlphabet = [NSMutableArray arrayWithArray:@[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z"]];
+    
+    NSString *strTest = [[NSString alloc]init];
+    for (int i=0; i&lt;3; i++) {
+        int x = arc4random() % 25;
+        strTest = [NSString stringWithFormat:@"%@%@",strTest,shuffledAlphabet[x]];
+    }
+    return strTest;
+}
+
+@end
+
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>3C1D09B1-8CF2-4E14-84BB-4C0A63F8B2C2</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>segement控制切换多个TableViewCotroller</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaSegement_MainVC_Sub_TableVC</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

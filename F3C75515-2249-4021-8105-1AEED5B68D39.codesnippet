@@ -81,7 +81,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DiscoverNoticeWatchCell *cell = [tableView dequeueReusableCellWithIdentifier:DiscoverNoticeWatchCellID];
+    DiscoverNoticeWatchCell *cell = [tableView dequeueReusableCellWithIdentifier:DiscoverNoticeWatchCellID forIndexPath:indexPath];
     //    cell.message = self.noticesArray[indexPath.row];
     return cell;
 }

@@ -150,7 +150,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DiscoverNoticeLikePraiseCell *cell = [tableView dequeueReusableCellWithIdentifier:DiscoverNoticeLikePraiseCellID];
+    DiscoverNoticeLikePraiseCell *cell = [tableView dequeueReusableCellWithIdentifier:DiscoverNoticeLikePraiseCellID forIndexPath:indexPath];
     //    cell.message = self.noticesArray[indexPath.row];
     return cell;
 }

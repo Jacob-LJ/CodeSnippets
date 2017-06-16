@@ -9,7 +9,7 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@property (nonatomic, copy) void(^clickBlock)();</string>
+	<string>@property (nonatomic, copy) void(^&lt;#click#&gt;Block)();</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>7215C09A-DC8E-4192-8DAB-9F4A3E56A5D5</string>
 	<key>IDECodeSnippetLanguage</key>

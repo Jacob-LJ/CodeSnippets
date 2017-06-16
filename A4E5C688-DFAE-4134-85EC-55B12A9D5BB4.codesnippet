@@ -9,20 +9,19 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>#import "GMSelectedTableController.h"
-
+	<string>#import "WIAttendanceAllContoller.h"
 //view
 #import "DiscoverNoticeWatchCell.h"
 
+@interface WIAttendanceAllContoller ()&lt;UITableViewDelegate, UITableViewDataSource&gt;
 
-@interface GMSelectedTableController ()&lt;UITableViewDelegate, UITableViewDataSource&gt;
 @property (nonatomic, weak) UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray *noticesArray;
-@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, assign) NSUInteger page;
 
 @end
 
-@implementation GMSelectedTableController
+@implementation WIAttendanceAllContoller
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -34,19 +33,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setUpNav];
     [self setUpInit];
+    [self setUpNav];
     [self setUpTableView];
+    [self prepareData];
     
-}
-
-- (void)setUpNav {
-    self.navigationItem.title = @"选择桌子";
 }
 
 - (void)setUpInit {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = themeBackgroundColor;
+}
+
+- (void)setUpNav {
+    self.navigationItem.title = @"出席统计";
 }
 
 - (void)setUpTableView {
@@ -70,8 +70,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DiscoverNoticeWatchCell *cell = [tableView dequeueReusableCellWithIdentifier:DiscoverNoticeWatchCellID];
-    
+    DiscoverNoticeWatchCell *cell = [tableView dequeueReusableCellWithIdentifier:DiscoverNoticeWatchCellID forIndexPath:indexPath];
     return cell;
 }
 
@@ -91,14 +90,42 @@
     
 }
 
-@end
-</string>
+#pragma mark - setter &amp; getter
+- (void)setDataArray:(NSMutableArray *)dataArray {
+    _dataArray = dataArray;
+    [self.tableView reloadData];
+}
+
+#pragma mark - test
+- (void)prepareData {
+    NSMutableArray *arrayM = [NSMutableArray array];
+    //数据个数
+    NSInteger dataCount = 20;
+    for (NSInteger i=0; i&lt;dataCount; i++) {
+        [arrayM addObject:[NSString stringWithFormat:@"%ld%@",(long)i,[self shuffledAlphabet]]];
+    }
+    self.dataArray = arrayM;
+}
+
+//产生3个随机字母
+- (NSString *)shuffledAlphabet {
+    NSMutableArray * shuffledAlphabet = [NSMutableArray arrayWithArray:@[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z"]];
+    
+    NSString *strTest = [[NSString alloc]init];
+    for (int i=0; i&lt;3; i++) {
+        int x = arc4random() % 25;
+        strTest = [NSString stringWithFormat:@"%@%@",strTest,shuffledAlphabet[x]];
+    }
+    return strTest;
+}
+
+@end</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>A4E5C688-DFAE-4134-85EC-55B12A9D5BB4</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>一个简单tableview controller</string>
+	<string>一个简单tableViewController_带testData</string>
 	<key>IDECodeSnippetTitle</key>
 	<string>jaTableView_simpleTableViewController</string>
 	<key>IDECodeSnippetUserSnippet</key>

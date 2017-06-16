@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaTableViewCell_leftMultiBtns_copySystem&lt;iOS8+&gt;</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    //自动计算宽度
+    NSDictionary *systemAttributes = @{ NSFontAttributeName: [UIFont systemFontOfSize:18] };
+    NSDictionary *newAttributes = @{
+                                    NSFontAttributeName: [UIFont systemFontOfSize:12 weight:UIFontWeightSemibold],
+                                    NSForegroundColorAttributeName : [UIColor whiteColor],
+                                    };
+    
+    NSString *deleteActionTitle = @"删除";
+    NSString *delteTitleWhiteSpaced = [deleteActionTitle hlm_whitespaceReplacementWithSystemAttributes:systemAttributes newAttributes:newAttributes];
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:delteTitleWhiteSpaced handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        NSLog(@"删除");
+        [tableView setEditing:NO];
+    }];
+    UIImage *deletePatternImage = [self hlm_imageForTableViewRowActionWithTitle:deleteActionTitle textAttributes:newAttributes backgroundColor:themeColor cellHeight:90];
+    deleteAction.backgroundColor = [UIColor colorWithPatternImage:deletePatternImage];
+    
+    
+    NSString *moreActionTitle = @"不公开";
+    NSString *moreTitleWhiteSpaced = [moreActionTitle hlm_whitespaceReplacementWithSystemAttributes:systemAttributes newAttributes:newAttributes];
+    UITableViewRowAction *moreAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:moreTitleWhiteSpaced handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+                    NSLog(@"不关注");
+                    [tableView setEditing:NO];
+                }];
+    UIImage *morePatternImage = [self hlm_imageForTableViewRowActionWithTitle:moreActionTitle textAttributes:newAttributes backgroundColor:RGBA(153, 153, 153, 1) cellHeight:90];
+    moreAction.backgroundColor = [UIColor colorWithPatternImage:morePatternImage];
+    
+    return @[deleteAction, moreAction];
+}
+
+
+- (UIImage *)hlm_imageForTableViewRowActionWithTitle:(NSString *)title textAttributes:(NSDictionary *)attributes backgroundColor:(UIColor *)color cellHeight:(CGFloat)cellHeight
+{
+    NSString *titleString = title;
+    NSDictionary *originalAttributes = @{NSFontAttributeName: [UIFont systemFontOfSize:18]};
+    CGSize originalSize = [titleString sizeWithAttributes:originalAttributes];
+    CGSize newSize = CGSizeMake(originalSize.width + kSystemTextPadding + kSystemTextPadding, originalSize.height);
+    CGRect drawingRect = CGRectIntegral(CGRectMake(0, 0, newSize.width, cellHeight));
+    UIGraphicsBeginImageContextWithOptions(drawingRect.size, YES, [UIScreen mainScreen].nativeScale);
+    CGContextRef contextRef = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(contextRef, color.CGColor);
+    CGContextFillRect(contextRef, drawingRect);
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:drawingRect];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.attributedText = [[NSAttributedString alloc] initWithString:title attributes:attributes];
+    [label drawTextInRect:drawingRect];
+    
+    //This is other way how to render string
+    //    CGSize size = [titleString sizeWithAttributes:attributes];
+    //    CGFloat x =  (drawingRect.size.width - size.width)/2;
+    //    CGFloat y =  (drawingRect.size.height - size.height)/2;
+    //    drawingRect.origin = CGPointMake(x, y);
+    //    [titleString drawInRect:drawingRect withAttributes:attributes];
+    
+    UIImage *returningImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return returningImage;
+}
+
+#pragma mark - NSString 分类方法
+// 计算systemAttributes的字符串宽度，并使用newAttributes空白字符串格 替换
+// 如 systemAttributes 的字符串 @“abcd”为20，则返回使用newAttributes的空格替换字符串 @“   ”
+- (NSString *)hlm_whitespaceReplacementWithSystemAttributes:(NSDictionary *)systemAttributes newAttributes:(NSDictionary *)newAttributes {
+    NSString *stringTitle = self;
+    NSMutableString *stringTitleWS = [[NSMutableString alloc] initWithString:@""];
+    
+    CGFloat diff = 0;
+    CGSize  stringTitleSize = [stringTitle sizeWithAttributes:newAttributes];
+    CGSize stringTitleWSSize;
+    NSDictionary *originalAttributes = systemAttributes;
+    do {
+        [stringTitleWS appendString:@" "];
+        stringTitleWSSize = [stringTitleWS sizeWithAttributes:originalAttributes];
+        diff = (stringTitleSize.width - stringTitleWSSize.width);
+        if (diff &lt;= 1.5) {
+            break;
+        }
+    }
+    while (diff &gt; 0);
+    
+    return [stringTitleWS copy];
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>C51B2952-2EA0-451F-AA47-D04DD567A044</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>tableCell左划多个按钮,完全模仿系统字体宽度&lt;iOS8+&gt;</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaTableViewCell_leftMultiBtns_copySystem&lt;iOS8+&gt;</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
