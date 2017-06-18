@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jaCollectionView_SegmentControlScrollToSpecialSEction</string>
+	<string>jaCollectionView_SegmentControlScrollToSpecialSection</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -285,7 +285,7 @@ static CGFloat const kColumnNum = 2.0;
 	<key>IDECodeSnippetSummary</key>
 	<string>带Segment的锚点滚动collectionView_带SectionFooterView</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jaCollectionView_SegmentControlScrollToSpecialSEction</string>
+	<string>jaCollectionView_SegmentControlScrollToSpecialSection</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
