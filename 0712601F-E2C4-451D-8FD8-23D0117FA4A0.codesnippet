@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaLabel_AttributeHeight</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    style.lineSpacing = 5;
+    //ContentLBH
+    CGFloat contentLabelMaxW = HLMScreenW - 100;
+    CGSize contentLBMaxSize = CGSizeMake(contentLabelMaxW, MAXFLOAT);
+    NSDictionary *contentAttriDict = @{
+                                       NSFontAttributeName : [UIFont systemFontOfSize:12 weight:UIFontWeightRegular],
+                                       NSParagraphStyleAttributeName : style,
+                                       };
+    
+    CGFloat contentLBH = [self.comment.content boundingRectWithSize:contentLBMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:contentAttriDict context:nil].size.height;</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>0712601F-E2C4-451D-8FD8-23D0117FA4A0</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>计算LB AttributeText 高度</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaLabel_AttributeHeight</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
