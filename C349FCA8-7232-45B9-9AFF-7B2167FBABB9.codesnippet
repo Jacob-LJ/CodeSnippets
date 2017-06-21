@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaPushPresentTwoVC_OnlyTransitionScecondVC</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeExpression</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>// 1 使用截屏处理一个控制器 present两个Navicontroller的情况，并且开始展示时先展示第二个，dismiss第二个时候再显示第一个
++ (instancetype)modal {
+    
+    DiscoverPhotoPostController *postPhotoVC = [[DiscoverPhotoPostController alloc] init];
+    HLMBaseNavigationController *navVC = [[HLMBaseNavigationController alloc] initWithRootViewController:postPhotoVC];
+    
+    HLMImagePickerController *picker = [[HLMImagePickerController alloc] initWithMaxImagesCount:kMaxSelectableCount columnNumber:4 delegate:postPhotoVC pushPhotoPickerVc:YES];
+    picker.allowTakePicture = NO;
+    picker.autoDismiss = NO;
+    picker.allowPickingOriginalPhoto = NO; /**&lt; 开启原图,选择9张原图会导致内存从一般的160左右跳到500上下,且高居不下,情况待定 */
+    picker.selectedAssets = [postPhotoVC.totalSelectedModels valueForKeyPath:@"asset"];
+    
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(HLMScreenW, HLMScreenH), NO, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [[UIApplication sharedApplication].keyWindow.layer renderInContext:context];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIImageView *trickImageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, HLMScreenW, HLMScreenH)];
+    [postPhotoVC.view addSubview:trickImageV];
+    trickImageV.image = image;
+    postPhotoVC.firstDidShowPhotoPicker = YES;
+    
+    [[UIApplication sharedApplication].keyWindow.rootViewController.hlm_topViewController presentViewController:navVC animated:NO completion:NULL];
+    
+    [postPhotoVC presentViewController:picker animated:YES completion:^{
+        [trickImageV removeFromSuperview];
+    }];
+    
+    return postPhotoVC;
+    // DiscoverPhotoPostController.m
+    - (void)viewWillAppear:(BOOL)animated {
+        [super viewWillAppear:animated];
+        if (self.firstDidShowPhotoPicker) {
+            self.navigationController.navigationBar.hidden = YES;
+            self.firstDidShowPhotoPicker = NO;
+        } else {
+            self.navigationController.navigationBar.hidden = NO;
+        }
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>C349FCA8-7232-45B9-9AFF-7B2167FBABB9</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>pushPresent两个控制器但只动画展示后一个的解决方案</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaPushPresentTwoVC_OnlyTransitionScecondVC</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
