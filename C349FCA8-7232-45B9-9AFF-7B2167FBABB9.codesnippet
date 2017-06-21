@@ -9,7 +9,14 @@
 		<string>CodeExpression</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>// 1 使用截屏处理一个控制器 present两个Navicontroller的情况，并且开始展示时先展示第二个，dismiss第二个时候再显示第一个
+	<string>// 1 push two view controllers but animate transition only for the second one?
+
+    NSMutableArray *controllers = [self.navigationController.viewControllers mutableCopy];
+    [controllers addObject:secondVc];
+    [controllers addObject:thirdVC];
+    [self.navigationController setViewControllers:controllers animated:YES];
+
+// 2 使用截屏处理一个控制器 present两个Navicontroller的情况，并且开始展示时先展示第二个，dismiss第二个时候再显示第一个
 + (instancetype)modal {
     
     DiscoverPhotoPostController *postPhotoVC = [[DiscoverPhotoPostController alloc] init];
@@ -61,6 +68,6 @@
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>0</integer>
+	<integer>2</integer>
 </dict>
 </plist>
