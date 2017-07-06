@@ -9,50 +9,51 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>- (void)fetchConfigurationWithCompletion:(void (^)(NSError* error))completion {
-    //参考链接 http://www.jianshu.com/p/5617ad407678
-    // Define errors to be processed when everything is complete.
-    // One error per service; in this example we'll have two
-    __block NSError *configError = nil;
-    __block NSError *preferenceError = nil;
-    
-    // Create the dispatch group
-    dispatch_group_t serviceGroup = dispatch_group_create();
-    
-    // Start the first service
-    dispatch_group_enter(serviceGroup);
-    [self.configService startWithCompletion:^(ConfigResponse *results, NSError* error){
-        // Do something with the results
-        configError = error;
-        dispatch_group_leave(serviceGroup);
-    }];
-    
-    // Start the second service
-    dispatch_group_enter(serviceGroup);
-    [self.preferenceService startWithCompletion:^(PreferenceResponse *results, NSError* error){
-        // Do something with the results
-        preferenceError = error;
-        dispatch_group_leave(serviceGroup);
-    }];
-    
-    dispatch_group_notify(serviceGroup,dispatch_get_main_queue(),^{
-        // Assess any errors
-        NSError *overallError = nil;
-        if (configError || preferenceError)
-        {
-            // Either make a new error or assign one of them to the overall error
-            overallError = configError ?: preferenceError;
-        }
-        // Now call the final completion block
-        completion(overallError);
+	<string>//参考链接
+//http://www.jianshu.com/p/5617ad407678
+//http://www.jianshu.com/p/56313152e87e
+dispatch_group_t group = dispatch_group_create();
+
+dispatch_queue_t queue = dispatch_queue_create("queue", DISPATCH_QUEUE_SERIAL);//使用 queue 是用来模拟的
+
+//使用 queue 模拟 异步的（dispatch_group_async）/ 延迟的（dispatch_after） 网络请求，响应完成时即回到主线程（dispatch_get_main_queue）执行 block
+/*
+ dispatch_group_enter(serviceGroup);
+ [ConfigService startWithCompletion:^(ConfigResponse *results, NSError* error){
+ dispatch_group_leave(serviceGroup);
+ }];
+ */
+dispatch_group_enter(group);
+dispatch_group_async(group, queue, ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSLog(@"任务1");
+        dispatch_group_leave(group);
     });
-}</string>
+});
+
+dispatch_group_enter(group);
+dispatch_group_async(group, queue, ^{
+    NSLog(@"任务2");
+    dispatch_group_leave(group);
+});
+
+dispatch_group_enter(group);
+dispatch_group_async(group, queue, ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSLog(@"任务3");
+        dispatch_group_leave(group);
+    });
+});
+
+dispatch_group_notify(group, queue, ^{
+    NSLog(@"完成");
+});</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>7B00285A-136C-402F-A914-9B575A6A7905</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>GCD使用Dispatch Groups来管理多个Web Services请求</string>
+	<string>GCD_Groups来并行多个请求，全部请求完成后执行 notify</string>
 	<key>IDECodeSnippetTitle</key>
 	<string>jaDispatchGroups_magageMutiRequest</string>
 	<key>IDECodeSnippetUserSnippet</key>
