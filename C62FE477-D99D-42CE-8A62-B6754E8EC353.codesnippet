@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaImageView_Play_LocalGifFile—BySDWebImage</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    NSString *path = [[NSBundle mainBundle] pathForResource:gifUrl.lastPathComponent ofType:nil];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    UIImage *image = [UIImage sd_animatedGIFWithData:data];
+    
+    self.imageV.image = image;
+    self.imageV.animationImages = image.images;
+    self.imageV.animationDuration = image.duration;
+    self.imageV.animationRepeatCount = 0;
+    self.imageV.image = image.images[image.images.count / 2];
+//        [self.imageV startAnimating];
+    #import &lt;UIImage+GIF.h&gt;</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>C62FE477-D99D-42CE-8A62-B6754E8EC353</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>通过SD加载本地gif文件，控制播放暂停</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaImageView_Play_LocalGifFile—BySDWebImage</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
