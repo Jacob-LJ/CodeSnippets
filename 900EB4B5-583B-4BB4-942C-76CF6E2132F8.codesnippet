@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaKeyboardFrameChange_Notification</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+ 
+[[NSNotificationCenter defaultCenter] removeObserver:self];
+
+#pragma mark - UIKeyboardWillChangeFrameNotification
+ 
+ - (void)keyboardFrameWillChange:(NSNotification *)noti {
+     CGRect endFrame = [noti.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+     keyboardH = endFrame.size.height;
+     CGFloat animateTime = [noti.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue];
+     
+     //    CGFloat keboardHeight = HLMScreenH - endFrame.origin.y;
+     CGRect unionRect = CGRectIntersection(endFrame, self.containerV.frame);
+     self.containerVCenterConstraint.constant = -(CGRectGetHeight(unionRect) + 10);
+     
+     [UIView animateWithDuration:animateTime animations:^{
+         [self layoutIfNeeded];
+     }];
+ }
+
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>900EB4B5-583B-4BB4-942C-76CF6E2132F8</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>键盘弹出通知</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaKeyboardFrameChange_Notification</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
