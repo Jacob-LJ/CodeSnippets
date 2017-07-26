@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaDispatch_Barrier</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//http://www.jianshu.com/p/a0516f111bf0
+- (void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event {
+    
+    dispatch_async(dispatch_queue_create("mmmmmm", DISPATCH_QUEUE_CONCURRENT), ^{
+        [self logBarrierOrder];
+    });
+}
+
+- (void)logBarrierOrder {
+    NSLog(@"%@ &gt;&gt;&gt;&gt;&gt;  start ", [NSThread currentThread]);
+    dispatch_queue_t queue = dispatch_queue_create("test.barrier.queue", DISPATCH_QUEUE_CONCURRENT);
+    //异步函数 无序执行
+    
+    NSLog(@"%@ &gt;&gt;&gt;&gt;&gt;  barrier 前面 1 ", [NSThread currentThread]);
+    dispatch_async(queue, ^{
+        sleep(5);
+        NSLog(@"%@ &gt;&gt;&gt;&gt;&gt; 任务  1 ", [NSThread currentThread]);
+    });
+    
+    NSLog(@"%@ &gt;&gt;&gt;&gt;&gt;  barrier 前面 2 ", [NSThread currentThread]);
+    dispatch_async(queue, ^{
+        sleep(3);
+        NSLog(@"%@ &gt;&gt;&gt;&gt;&gt; 任务  2 ", [NSThread currentThread]);
+    });
+    
+    NSLog(@"%@ &gt;&gt;&gt;&gt;&gt;  barrier 前面 3 ", [NSThread currentThread]);
+    dispatch_async(queue, ^{
+        sleep(1);
+        NSLog(@"%@ &gt;&gt;&gt;&gt;&gt; 任务  3 ", [NSThread currentThread]);
+    });
+    NSLog(@"%@ &gt;&gt;&gt;&gt;&gt;  barrier 前面 4.1 ", [NSThread currentThread]);
+    
+    
+    dispatch_barrier_sync(queue, ^{
+        sleep(7);
+        NSLog(@"%@ ++++++  barrier ++++++ ", [NSThread currentThread]);
+    });
+    
+//    dispatch_barrier_async(queue, ^{
+//        sleep(7);
+//        NSLog(@"%@ ++++++  barrier ++++++ ", [NSThread currentThread]);
+//    });
+    
+    NSLog(@"%@ &gt;&gt;&gt;&gt;&gt;  barrier 后面 4.2 ", [NSThread currentThread]);
+    dispatch_async(queue, ^{
+        NSLog(@"%@ &gt;&gt;&gt;&gt;&gt; 任务  4 ", [NSThread currentThread]);
+    });
+    
+    NSLog(@"%@ &gt;&gt;&gt;&gt;&gt;  barrier 后面 5 ", [NSThread currentThread]);
+    dispatch_async(queue, ^{
+        sleep(10);
+        NSLog(@"%@ &gt;&gt;&gt;&gt;&gt; 任务  5 ", [NSThread currentThread]);
+    });
+    
+    NSLog(@"%@ &gt;&gt;&gt;&gt;&gt;  barrier 后面 6 ", [NSThread currentThread]);
+    dispatch_async(queue, ^{
+        NSLog(@"%@ &gt;&gt;&gt;&gt;&gt; 任务  6 ", [NSThread currentThread]);
+    });
+    
+    NSLog(@"%@ &gt;&gt;&gt;&gt;&gt;  end ", [NSThread currentThread]);
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>3A7700DD-BC06-4BF3-8209-51F521922C04</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>栅栏，将任务从中间分开</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaDispatch_Barrier</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
