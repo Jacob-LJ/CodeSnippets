@@ -9,45 +9,95 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>//参考链接
-//http://www.jianshu.com/p/5617ad407678
-//http://www.jianshu.com/p/56313152e87e
-dispatch_group_t group = dispatch_group_create();
-
-dispatch_queue_t queue = dispatch_queue_create("queue", DISPATCH_QUEUE_SERIAL);//使用 queue 是用来模拟的
-
-//使用 queue 模拟 异步的（dispatch_group_async）/ 延迟的（dispatch_after） 网络请求，响应完成时即回到主线程（dispatch_get_main_queue）执行 block
-/*
- dispatch_group_enter(serviceGroup);
- [ConfigService startWithCompletion:^(ConfigResponse *results, NSError* error){
- dispatch_group_leave(serviceGroup);
- }];
- */
-dispatch_group_enter(group);
-dispatch_group_async(group, queue, ^{
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NSLog(@"任务1");
+	<string>- (void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event {
+    //参考链接
+    //http://www.jianshu.com/p/5617ad407678
+    //http://www.jianshu.com/p/56313152e87e
+    dispatch_group_t group = dispatch_group_create();
+    
+    dispatch_queue_t queue = dispatch_queue_create("queue", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_group_enter(group);
+    dispatch_group_async(group, queue, ^{
+        NSLog(@"%@ start 任务1", [NSThread currentThread]);
+        //如下使用 After 是模拟向服务器请求
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSLog(@"%@ 任务1", [NSThread currentThread]);
+            dispatch_group_leave(group);
+        });
+    });
+    
+    dispatch_group_enter(group);
+    dispatch_group_async(group, queue, ^{
+        NSLog(@"%@ start 任务2", [NSThread currentThread]);
+        NSLog(@"%@ 任务2", [NSThread currentThread]);
         dispatch_group_leave(group);
     });
-});
+    
+    dispatch_group_enter(group);
+    dispatch_group_async(group, queue, ^{
+        NSLog(@"%@ start 任务3", [NSThread currentThread]);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSLog(@"%@ 任务3", [NSThread currentThread]);
+            dispatch_group_leave(group);
+        });
+    });
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        NSLog(@"%@ 完成", [NSThread currentThread]);
+    });
+    
+    NSLog(@"%@ 😝😝😝😝😝😝😝", [NSThread currentThread]);
+    
+    
+}
 
-dispatch_group_enter(group);
-dispatch_group_async(group, queue, ^{
-    NSLog(@"任务2");
-    dispatch_group_leave(group);
-});
-
-dispatch_group_enter(group);
-dispatch_group_async(group, queue, ^{
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NSLog(@"任务3");
+//将 blockMainThreadTest 放到 主线程中调用 测试
+- (void)blockMainThreadTest {
+    //如果在主线程中 将任务 派发到 group ，同时采用 group wait 功能的话会导致主线程阻塞，demo 如下
+    
+    //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{ //在其他线程中派发任务到 group 后再采用 group wait 功能则无问题 ； 又或者任务是一个无分叉的代码列，即不是服务请求类型的也可以在主线程中派发任务同时使用 group wait功能而不会导致主线程阻塞
+    
+    dispatch_group_t group = dispatch_group_create();
+    
+    dispatch_queue_t queue = dispatch_queue_create("queue", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_group_enter(group);
+    dispatch_group_async(group, queue, ^{
+        NSLog(@"%@ start 任务1", [NSThread currentThread]);
+        //如下使用 After 是模拟向服务器请求
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSLog(@"%@ 任务1", [NSThread currentThread]);
+            dispatch_group_leave(group);
+        });
+    });
+    
+    dispatch_group_enter(group);
+    dispatch_group_async(group, queue, ^{
+        NSLog(@"%@ start 任务2", [NSThread currentThread]);
+        NSLog(@"%@ 任务2", [NSThread currentThread]);
         dispatch_group_leave(group);
     });
-});
-
-dispatch_group_notify(group, queue, ^{
-    NSLog(@"完成");
-});</string>
+    
+    dispatch_group_enter(group);
+    dispatch_group_async(group, queue, ^{
+        NSLog(@"%@ start 任务3", [NSThread currentThread]);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSLog(@"%@ 任务3", [NSThread currentThread]);
+            dispatch_group_leave(group);
+        });
+    });
+    
+    //    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+    //        NSLog(@"%@ 完成", [NSThread currentThread]);
+    //    });
+    
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER); //等待 group 里的任务都结束后才执行后续代码
+    NSLog(@"啦啦啦啦啦");
+    NSLog(@"%@ 完成", [NSThread currentThread]);
+    
+    //    });
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>7B00285A-136C-402F-A914-9B575A6A7905</string>
 	<key>IDECodeSnippetLanguage</key>
