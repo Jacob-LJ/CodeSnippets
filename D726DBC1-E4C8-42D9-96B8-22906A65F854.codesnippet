@@ -15,7 +15,7 @@
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>desc 放在行后面才有效</string>
+	<string>行描述（如enum的单个描述） 放在行后面才有效</string>
 	<key>IDECodeSnippetTitle</key>
 	<string>jaDesc2</string>
 	<key>IDECodeSnippetUserSnippet</key>
