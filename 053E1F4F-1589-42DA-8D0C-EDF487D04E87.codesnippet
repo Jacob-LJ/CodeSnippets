@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaNavigationItem_TitleView</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>UILabel *titleLB = [[UILabel alloc] init];
+    titleLB.text = @"新建喜帖";
+    titleLB.textColor = RGBA(102, 102, 102, 1);
+    titleLB.font = [UIFont systemFontOfSize:16];
+    [titleLB sizeToFit];
+    self.navigationItem.titleView = titleLB;</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>053E1F4F-1589-42DA-8D0C-EDF487D04E87</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>自定义navTitle</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaNavigationItem_TitleView</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

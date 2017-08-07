@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaImagePicker_OperationCode</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#import "HLMImagePickerController.h"
+HLMImagePickerControllerDelegate
+
+- (void)selectImageBtnClick {
+    
+    HLMImagePickerController *picker = [[HLMImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
+    picker.allowPickingVideo = NO;
+    picker.allowTakePicture = NO;
+    picker.autoDismiss = NO;
+    picker.allowPickingOriginalPhoto = NO; /**&lt; 开启原图,选择9张原图会导致内存从一般的160左右跳到500上下,且高居不下,情况待定 */
+    picker.allowCrop = YES;
+    CGFloat cropRectH = HLMScreenW * (180.0/335.0);
+    picker.cropRect = CGRectMake(0, (HLMScreenH - cropRectH) * 0.5, HLMScreenW, cropRectH);
+    [self presentViewController:picker animated:YES completion:nil];
+
+}
+
+#pragma mark - HLMImagePickerControllerDelegate
+- (void)imagePickerController:(HLMImagePickerController *)picker didFinishPickingPhotos:(NSArray&lt;UIImage *&gt; *)photos sourceAssets:(NSArray *)assets isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto {
+    HLMWeakSelf
+    [picker dismissViewControllerAnimated:YES completion:^{
+        weakSelf.headerView.selectedImage = photos.firstObject;
+    }];
+    
+}
+
+- (void)tz_imagePickerControllerDidCancel:(HLMImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>ED9E7931-C5D1-483D-B039-3266D5A493BA</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>选照片界面</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaImagePicker_OperationCode</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
