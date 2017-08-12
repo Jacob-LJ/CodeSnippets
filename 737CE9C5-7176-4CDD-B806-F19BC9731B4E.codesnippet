@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaProgresView_Sample</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>@property (nonatomic, weak) CAShapeLayer *indicateLayer;
+
+- (void)setUpProgressView {
+    &lt;#self.progressView#&gt;.layer.cornerRadius = 10;
+    &lt;#self.progressView#&gt;.clipsToBounds = YES;
+    &lt;#self.progressView#&gt;.backgroundColor = HLM_RGBA(216, 216, 216, 1);
+    
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 0, 20) cornerRadius:10];
+    CAShapeLayer *indicateLayer = [CAShapeLayer layer];
+    indicateLayer.path = path.CGPath;
+    indicateLayer.fillColor = HLM_RGBA(0, 118, 255, 1).CGColor;
+    [&lt;#self.progressView#&gt;.layer addSublayer:indicateLayer];
+    self.indicateLayer = indicateLayer;
+    
+}
+
+- (void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event {
+
+    CGFloat val = ((CGFloat)arc4random() / 0x100000000);
+    [self refreshProgress:val];
+}
+
+- (void)refreshProgress:(CGFloat)progress {
+    progress = MIN(1.f, MAX(0.f, progress));
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, (HLMScreenW - 110) * progress, 20) cornerRadius:10];
+    self.indicateLayer.path = path.CGPath;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>737CE9C5-7176-4CDD-B806-F19BC9731B4E</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>进度条</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaProgresView_Sample</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

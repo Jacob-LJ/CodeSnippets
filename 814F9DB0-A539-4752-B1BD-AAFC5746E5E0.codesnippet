@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaScrollview_StopObserver</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark UIScrollViewDelegate
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    BOOL scrollToScrollStop = !scrollView.tracking &amp;&amp; !scrollView.dragging &amp;&amp;    !scrollView.decelerating;
+    if (scrollToScrollStop) {
+        [self scrollViewDidEndScroll];
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (!decelerate) {
+        BOOL dragToDragStop = scrollView.tracking &amp;&amp; !scrollView.dragging &amp;&amp; !scrollView.decelerating;
+        if (dragToDragStop) {
+            [self scrollViewDidEndScroll];
+        }
+    }
+}
+
+- (void)scrollViewDidEndScroll {
+    NSLog(@"停止");
+    //停止类型 》 1、快速滚动，自然停止；2、快速滚动，手指按压突然停止；3、慢速上下滑动停止。
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>814F9DB0-A539-4752-B1BD-AAFC5746E5E0</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>发现UIScrollView停止滚动监听</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaScrollview_StopObserver</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
