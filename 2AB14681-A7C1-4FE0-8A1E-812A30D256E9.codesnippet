@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaLabelSetStep_ms</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>_contentLB = [[UILabel alloc] init];
+_contentLB.font = kFontThinBigSize;
+_contentLB.textColor = KBackgoundColorMediumDaker;
+_contentLB.numberOfLines = 2;
+[self.contentView addSubview:_contentLB];
+
+self.contentLB.preferredMaxLayoutWidth = (kScreenWidth - kAvatarWH - kLRMargin * 3);
+[self.contentLB setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+[self.contentLB mas_makeConstraints:^(MASConstraintMaker *make) {
+    make.top.equalTo(self.verticalCenterNameLBStarViewContainerV.mas_bottom).offset(kLRMargin);
+    make.left.equalTo(self.verticalCenterNameLBStarViewContainerV.mas_left);
+    make.right.greaterThanOrEqualTo(self.contentView.mas_right).offset(-kLRMargin);
+}];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>2AB14681-A7C1-4FE0-8A1E-812A30D256E9</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>label懒加载设置步骤</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaLabelSetStep_ms</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

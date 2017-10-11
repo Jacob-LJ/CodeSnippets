@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>JaCell_Mas</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>static const CGFloat kLeftMargin = 12;
+
+@interface GTFoodSpecialOffserDetailTicketDetailCell ()
+
+@property (nonatomic, strong) UILabel *nameLB;
+@property (nonatomic, strong) UILabel *countLB;
+@property (nonatomic, strong) UILabel *priceLB;
+
+@end
+
+@implementation GTFoodSpecialOffserDetailTicketDetailCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        [self addConstraintOnSubviews];
+    }
+    return self;
+}
+
+- (void)addConstraintOnSubviews {
+    
+    self.nameLB.preferredMaxLayoutWidth = (kScreenWidth - kLeftMargin * 2);
+    [self.nameLB setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+    [self.nameLB mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.equalTo(self.contentView).offset(kLeftMargin);
+        make.right.greaterThanOrEqualTo(self.contentView).offset(-kLeftMargin);
+    }];
+    
+    self.countLB.preferredMaxLayoutWidth = (kScreenWidth - kLeftMargin * 2);
+    [self.countLB setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+    [self.countLB mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.nameLB.mas_bottom).offset(kLeftMargin);
+        make.left.equalTo(self.contentView).offset(kLeftMargin);
+        make.right.greaterThanOrEqualTo(self.contentView).offset(-kLeftMargin);
+    }];
+}
+
+#pragma mark - getter &amp; setter
+- (UILabel *)nameLB {
+    if (!_nameLB) {
+        _nameLB = [[UILabel alloc] init];
+        _nameLB.numberOfLines = 0;
+        _nameLB.font = kFontRegularBigSize;
+        _nameLB.textColor = kBackgoundColorRegularDaker;
+        [self.contentView addSubview:_nameLB];
+        
+        _nameLB.text = @"探鱼探鱼探鱼探鱼探鱼探鱼探鱼探鱼";
+    }
+    return _nameLB;
+}
+
+- (UILabel *)countLB {
+    if (!_countLB) {
+        _countLB = [[UILabel alloc] init];
+        _countLB.numberOfLines = 0;
+        _countLB.font = kFontThinBigSize;
+        _countLB.textColor = kBackgoundColorMediumDaker;
+        [self.contentView addSubview:_countLB];
+        
+        _countLB.text = @"仅售58元！价值88元的抵用券一张。仅售58元！";
+    }
+    return _countLB;
+}
+
+- (UILabel *)priceLB {
+    if (!_priceLB) {
+        _priceLB = [[UILabel alloc] init];
+        _priceLB.numberOfLines = 0;
+        _priceLB.font = kFontThinBigSize;
+        _priceLB.textColor = kBackgoundColorMediumDaker;
+        [self.contentView addSubview:_priceLB];
+        
+        _priceLB.text = @"仅售58元！价值88元的抵用券一张。仅售58元！";
+    }
+    return _priceLB;
+}
+
+@end</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>5EDBF3EC-97F8-4613-9753-1A60EADE6B72</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>masonry的简单title和desc的Cell</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>JaCell_Mas</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
