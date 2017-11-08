@@ -13,13 +13,13 @@
         @weakify(self);
         [alertVc addAction:[UIAlertAction actionWithTitle:@"不保存" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             @strongify(self);
-            [self deleteDraft];
+            //
             [self dismissViewControllerAnimated:YES completion:nil];
         }]];
         [alertVc addAction:[UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             @strongify(self);
-            //保存草稿
-            [self saveAsDraft];
+            //
+            
             [self dismissViewControllerAnimated:YES completion:nil];
         }]];
         [self presentViewController:alertVc animated:YES completion:nil];</string>
