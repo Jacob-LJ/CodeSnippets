@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>JaCell_Mas</string>
+	<string>jaCell_Mas</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -121,9 +121,9 @@ static const CGFloat kLeftMargin = 12;
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>masonry的简单title和desc的Cell</string>
+	<string>Mas布局Cell内imageV+titleLB+descLB+btmLine</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>JaCell_Mas</string>
+	<string>jaCell_Mas</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

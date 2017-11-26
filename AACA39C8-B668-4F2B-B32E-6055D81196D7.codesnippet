@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaCCell_Mas</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>
+@interface jaCCell_Mas ()
+
+@property (nonatomic, strong) UIImageView *imageV;
+
+@end
+
+@implementation jaCCell_Mas
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self addConstraintsOnSubviews];
+    }
+    return self;
+}
+
+
+- (void)addConstraintsOnSubviews {
+    [self.imageV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.contentView);
+    }];
+}
+
+#pragma mark - public
+- (void)configCellWithModel:(id)model {
+
+}
+
+#pragma mark - getter &amp; setter
+- (UIImageView *)imageV {
+    if (!_imageV) {
+        _imageV = [[UIImageView alloc] init];
+        _imageV.image = [UIImage imageNamed:@"login_icon_logo"];
+        _imageV.layer.cornerRadius = 4;
+        _imageV.clipsToBounds = YES;
+        [self.contentView addSubview:_imageV];
+    }
+    return _imageV;
+}
+
+@end</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>AACA39C8-B668-4F2B-B32E-6055D81196D7</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Mas布局CCell内ImageV</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaCCell_Mas</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

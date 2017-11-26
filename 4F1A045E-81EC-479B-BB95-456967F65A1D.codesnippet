@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaView_btmLine_getter</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (UIView *)btmLineV {
+    if (!_btmLineV) {
+        _btmLineV = [[UIView alloc] init];
+        _btmLineV.backgroundColor = kColor_eeeeee;
+        [self.contentView addSubview:_btmLineV];
+    }
+    return _btmLineV;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>4F1A045E-81EC-479B-BB95-456967F65A1D</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>View做的底部分隔线</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaView_btmLine_getter</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

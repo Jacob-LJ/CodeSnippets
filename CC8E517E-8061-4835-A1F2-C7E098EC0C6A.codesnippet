@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaImageV_Getter_Mas</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (UIImageView *)imageV {
+    if (!_imageV) {
+        _imageV = [[UIImageView alloc] init];
+        _imageV.image = [UIImage imageNamed:@"login_icon_logo"];
+        _imageV.layer.cornerRadius = 4;
+        _imageV.clipsToBounds = YES;
+        [self.contentView addSubview:_imageV];
+        &lt;#[self addSubview:_imageV];#&gt;
+    }
+    return _imageV;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>CC8E517E-8061-4835-A1F2-C7E098EC0C6A</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>ImageV的getter方法</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaImageV_Getter_Mas</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

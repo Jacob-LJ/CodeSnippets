@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaLabel_Attri_getter</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (UILabel *)descLB {
+    if (!_descLB) {
+        _descLB = [[UILabel alloc] init];
+        _descLB.numberOfLines = 2;
+        [self.contentView addSubview:_descLB];
+        NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+        style.lineSpacing = 4;
+        NSDictionary *attriDict = @{
+                                    NSFontAttributeName : kFont_Regular_12,
+                                    NSForegroundColorAttributeName : kColor_666666,
+                                    NSParagraphStyleAttributeName : style,
+                                    };
+        //主要防止空字符串崩溃
+        _descLB.attributedText = [[NSAttributedString alloc] initWithString:@"最文艺的烤鱼，吃过忘不了，等你来品尝，风里雨里高德等你" attributes:attriDict];
+        _descLB.lineBreakMode = NSLineBreakByTruncatingTail; //Lable设置富文本时不会默认设置 lineBreakMode 的，而普通text则会给个默认省略号 lineBreakMode
+    }
+    return _descLB;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>C43C8668-A87B-4C93-AF72-DEFC13628DF5</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Labell的attributeText设置getter</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaLabel_Attri_getter</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

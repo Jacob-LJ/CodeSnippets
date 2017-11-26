@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaLabel_getter</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (UILabel *)titleLB {
+    if (!_titleLB) {
+        _titleLB = [[UILabel alloc] init];
+        _titleLB.numberOfLines = 1;
+        _titleLB.font = kFont_Medium_18;
+        _titleLB.textColor = kColor_333333;
+        [self.contentView addSubview:_titleLB];
+        &lt;#[self addSubview:_titleLB];#&gt;
+        
+        _titleLB.text = @"探鱼";
+    }
+    return _titleLB;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>6D378B99-D358-4874-AAAD-3FCE0206FA49</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Label的getter方法</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaLabel_getter</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

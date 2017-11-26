@@ -9,19 +9,18 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>#import "GTFoodAllMerchantListTagViewCell.h"
+	<string>//view
+#import "jaCell_Mas.h"
 
 //static const CGFloat kLeftMargin = 12;
 
-static NSString * const GTFoodAllMerchantListTagViewCellID = @"GTFoodAllMerchantListTagViewCell";
-
-@interface GTFoodAllMerchantListTagView ()&lt;UITableViewDelegate, UITableViewDataSource&gt;
+@interface jaView_tableView_Mas ()&lt;UITableViewDelegate, UITableViewDataSource&gt;
 
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
 
-@implementation GTFoodAllMerchantListTagView
+@implementation jaView_tableView_Mas
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -46,9 +45,8 @@ static NSString * const GTFoodAllMerchantListTagViewCellID = @"GTFoodAllMerchant
     return 2;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    GTFoodAllMerchantListTagViewCell *cell = [tableView dequeueReusableCellWithIdentifier:GTFoodAllMerchantListTagViewCellID forIndexPath:indexPath];
+    jaCell_Mas *cell = [tableView dequeueReusableCellWithIdentifier:jaCell_MasID forIndexPath:indexPath];
     return cell;
 }
 
@@ -84,7 +82,7 @@ static NSString * const GTFoodAllMerchantListTagViewCellID = @"GTFoodAllMerchant
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        [_tableView registerClass:[GTFoodAllMerchantListTagViewCell class] forCellReuseIdentifier:GTFoodAllMerchantListTagViewCellID];
+        [_tableView registerClass:[jaCell_Mas class] forCellReuseIdentifier:jaCell_MasID];
         [self addSubview:_tableView];
     }
     return _tableView;
