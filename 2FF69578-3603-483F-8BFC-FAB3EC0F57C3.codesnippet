@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaView_imageTitleSectionV_Mas</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>
+static const CGFloat kLeftMargin = 10;
+
+@interface GTJAActivitySectionV ()
+
+@property (nonatomic, strong) UIImageView *imageV;
+@property (nonatomic, strong) UILabel *titleLB;
+@property (nonatomic, strong) UIView *marginView;
+@property (nonatomic, strong) UIView *marginLine;
+
+@end
+
+@implementation GTJAActivitySectionV
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        self.backgroundColor = [UIColor whiteColor];
+        [self addConstraintOnSubviews];
+    }
+    return self;
+}
+
+- (void)addConstraintOnSubviews {
+    
+    [self.marginView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(self);
+        make.height.mas_equalTo(kLeftMargin);
+    }];
+    
+    [self.imageV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.marginView.mas_bottom);
+        make.left.equalTo(self).offset(kLeftMargin);
+        make.bottom.equalTo(self);
+        make.width.mas_equalTo(20);
+    }];
+    
+    [self.titleLB mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.marginView.mas_bottom);
+        make.left.equalTo(self.imageV.mas_right).offset(4);
+        make.bottom.equalTo(self);
+    }];
+    
+    [self.marginLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self);
+        make.left.mas_equalTo(kLeftMargin);
+        make.right.mas_equalTo(-kLeftMargin);
+        make.height.mas_equalTo(1);
+    }];
+    
+}
+
+#pragma mark - Public
+- (void)setType:(GTJAActivitySectionVType)type {
+    switch (type) {
+        case GTJAActivitySectionVTypeSelectScreening: {
+            _imageV.image = [UIImage imageNamed:@"discover_calendar_disabled_big"];
+            _titleLB.text = @"选择场次";
+            break;
+        }
+        case GTJAActivitySectionVTypeSelectPlace: {
+            _imageV.image = [UIImage imageNamed:@"discover_icon_location_disabled"];
+            _titleLB.text = @"选择地点";
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+#pragma mark - getter &amp; setter
+- (UIImageView *)imageV {
+    if (!_imageV) {
+        _imageV = [[UIImageView alloc] init];
+        _imageV.contentMode = UIViewContentModeCenter;
+        _imageV.image = [UIImage imageNamed:@"discover_calendar_disabled_big"];
+        [self addSubview:_imageV];
+    }
+    return _imageV;;
+}
+
+- (UILabel *)titleLB {
+    if (!_titleLB) {
+        _titleLB = [[UILabel alloc] init];
+        _titleLB.font = kFont_Regular_14;
+        _titleLB.textColor = kColor_333333;
+        [self addSubview:_titleLB];
+        
+        _titleLB.text = @"选择场次";
+    }
+    return _titleLB;
+}
+
+- (UIView *)marginView {
+    if (!_marginView) {
+        _marginView = [[UIView alloc] init];
+        _marginView.backgroundColor = kRGBAColor(241, 241, 241, 1);
+        [self addSubview:_marginView];
+    }
+    return _marginView;
+}
+
+- (UIView *)marginLine {
+    if (!_marginLine) {
+        _marginLine = [[UIView alloc] init];
+        _marginLine.backgroundColor = kColor_eeeeee;
+        [self addSubview:_marginLine];
+    }
+    return _marginLine;
+}
+
+@end
+
+static const CGFloat k&lt;#ActivitySectionV#&gt;H = 56;
+
+typedef NS_ENUM(NSUInteger, &lt;#GTJAActivitySectionVType#&gt;) {
+&lt;#GTJAActivitySectionVTypeSelectScreening#&gt;, //选择场次
+    &lt;#GTJAActivitySectionVTypeSelectPlace#&gt;, //选择地点
+};
+
+
+@property (nonatomic, assign) &lt;#GTJAActivitySectionVType#&gt; type;</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>2FF69578-3603-483F-8BFC-FAB3EC0F57C3</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>带图片和Title Sectionview</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaView_imageTitleSectionV_Mas</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
