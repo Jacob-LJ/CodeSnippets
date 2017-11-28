@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaButton_Getter</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (UIButton *)payBtn {
+    if (!_payBtn) {
+        _payBtn = [[UIButton alloc] init];
+        _payBtn.backgroundColor = kRGBAColor(254, 216, 55, 1);
+        [_payBtn setTitle:@"支付" forState:UIControlStateNormal];
+        _payBtn.titleLabel.font = kFont_Regular_14;
+        [_payBtn setTitleColor:kColor_333333 forState:UIControlStateNormal];
+        [_payBtn addTarget:self action:@selector(payBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.btmBar addSubview:_payBtn];
+    }
+    return _payBtn;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>D885088F-2064-402F-8226-E6DB118C995C</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Button的 getter 方法</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaButton_Getter</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
