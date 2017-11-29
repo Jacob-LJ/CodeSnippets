@@ -43,6 +43,11 @@
 
 - (void)setUpNav {
     self.title = @"我要参加";
+    
+    kDefineWeakSelf;
+    [self showCustomLeftImgBarButton:^(UIButton *button) {
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 - (void)setUpTableView {

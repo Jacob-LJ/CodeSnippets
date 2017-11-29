@@ -9,7 +9,8 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>//view
+	<string>
+//view
 #import "GTFoodSpecialOffersTableViewCell.h"
 
 @interface jaTableViewVC_GT ()&lt;UITableViewDelegate, UITableViewDataSource&gt;
@@ -35,18 +36,23 @@
 }
 
 - (void)setUpNav {
+    
     self.title = @"TableViewVC";
+    
+    kDefineWeakSelf;
+    [self showCustomLeftImgBarButton:^(UIButton *button) {
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 - (void)setUpTableView {
     
-    [self.view addSubview:self.tableView];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[GTFoodSpecialOffersTableViewCell class] forCellReuseIdentifier:@"GTFoodSpecialOffersTableViewCell"];
     
+    [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view);
         make.left.bottom.right.equalTo(self.view);
@@ -190,7 +196,8 @@
     NSLog(@"点击了空状态按钮事件");
 }
 
-@end</string>
+@end
+</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>C6E1F43B-1B41-4768-A569-626E9F4295C8</string>
 	<key>IDECodeSnippetLanguage</key>
