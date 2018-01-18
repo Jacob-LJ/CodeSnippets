@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaNavSetUp_For10.3.36P</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (void)setUpNav {
+    
+    UILabel *titleLB = [[UILabel alloc] init];
+    titleLB.backgroundColor = self.view.backgroundColor;
+    titleLB.text = @"收款";
+    titleLB.textColor = [UIColor whiteColor];
+    titleLB.font = kFont_Regular_18;
+    [titleLB sizeToFit];
+    UIImage *titleImage = [titleLB snapshotImage];
+    UIImageView *titleImageV = [[UIImageView alloc] initWithImage:titleImage];
+    self.navigationItem.titleView = titleImageV;
+    
+    UIImage *backImage = [[UIImage imageNamed:@"cashier_back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:backImage style:UIBarButtonItemStyleDone target:self action:@selector(backItemClick)];
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"顾客扫我" style:UIBarButtonItemStyleDone target:self action:@selector(switchToScan)];
+    [rightItem setTitleTextAttributes:@{
+                                        NSForegroundColorAttributeName : [UIColor whiteColor],
+                                        NSFontAttributeName : kFont_Regular_14,
+                                        } forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = rightItem;
+    
+}
+
+//对比
+- (void)setUpNav {
+    
+    UILabel *titleLB = [[UILabel alloc] init];
+    titleLB.text = @"收款";
+    titleLB.textColor = [UIColor whiteColor];
+    titleLB.font = kFont_Regular_18;
+    self.navigationItem.titleView = titleLB;
+    
+    UIButton *backBtn = [[UIButton alloc] init];
+    [backBtn setImage:[UIImage imageNamed:@"cashier_back"] forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(backItemClick) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+    
+    UIButton *switchToScanBtn = [[UIButton alloc] init];
+    [switchToScanBtn setTitle:@"我扫顾客" forState:UIControlStateNormal];
+    switchToScanBtn.titleLabel.font = kFont_Regular_14;
+    [switchToScanBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [switchToScanBtn addTarget:self action:@selector(switchToScan) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:switchToScanBtn];
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>37B7BC07-1867-43F8-B699-A2FD61B1D2C9</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>10.3.3 6P上所有titleView、left和rightItem使用customView都无效</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaNavSetUp_For10.3.36P</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
