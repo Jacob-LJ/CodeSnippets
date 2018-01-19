@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>JAScrollView_NavBarGradient</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat offsetY = scrollView.contentOffset.y;
+    CGFloat alpha = 0;
+    if (scrollView.contentOffset.y &gt; kUINavigationBarHeight) {
+        self.navContainerV.backgroundColor = [UIColor colorWithWhite:1.0 alpha:1];
+    } else {
+        alpha = 1 - fabs(offsetY - kUINavigationBarHeight) / kUINavigationBarHeight;
+        self.navContainerV.backgroundColor = [UIColor colorWithWhite:1.0 alpha:alpha];
+    }
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>37A08624-3E8E-4F1D-B877-2F27A5E06138</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>NavBar滚动渐变Scroll方法监听</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>JAScrollView_NavBarGradient</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
