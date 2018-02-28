@@ -9,13 +9,15 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    &lt;#self.menuView#&gt;.layer.shadowOpacity = 1;
-    &lt;#self.menuView#&gt;.layer.shadowColor = RGBA(0, 0, 0, 0.4).CGColor;
-    &lt;#self.menuView#&gt;.layer.shadowRadius = 1;
-    &lt;#self.menuView#&gt;.layer.shadowOffset = CGSizeMake(0, 2);
-    //[self.contentView layoutIfNeeded];
-    CGRect shadowRect = CGRectInset(&lt;#self.menuView#&gt;.bounds, -10, -10);
-    &lt;#self.menuView#&gt;.layer.shadowPath = [UIBezierPath bezierPathWithRect:shadowRect].CGPath;//扩大阴影
+	<string>_shadowView.layer.cornerRadius = 50;
+_shadowView.layer.shadowOpacity = 1;
+_shadowView.layer.shadowColor = [UIColor blackColor].CGColor;
+_shadowView.layer.shadowOffset = CGSizeMake(0, 0); &lt;#//不设置时，系统默认是（0，3）#&gt;
+
+_shadowView.layer.shadowRadius = 29.0;&lt;#//阴影的模糊扩散效果#&gt;
+CGRect shadowRect = CGRectInset(_shadowView.bounds, -10, -10);
+_shadowView.layer.shadowPath = [UIBezierPath bezierPathWithRect:shadowRect].CGPath;&lt;#//扩大阴影#&gt;
+&lt;#//shadowRadius 和 shadowPath 都开启的话效果会进行叠加#&gt;
 </string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>6FDF599A-485F-4DE3-975D-D7030FB19A40</string>
