@@ -12,14 +12,6 @@
 	<string>+ (NSDictionary *)modelContainerPropertyGenericClass {
     
     return @{
-             @"advertisement": [GTRecommendAdListModel class],
-             };
-    
-}
-
-+ (NSDictionary *)modelContainerPropertyGenericClass {
-    
-    return @{
              @"records": [GTRecommendModel class],
              };
 }
