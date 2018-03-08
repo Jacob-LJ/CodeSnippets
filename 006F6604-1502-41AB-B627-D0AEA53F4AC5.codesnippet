@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>jaCodeTime</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>CFAbsoluteTime startTime =CFAbsoluteTimeGetCurrent();
+    
+    &lt;#//在这写入要计算时间的代码#&gt;
+
+    
+CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
+    
+NSLog(@"Linked in %f ms", linkTime *1000.0); //打印出来为代码执行时间 单位ms</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>006F6604-1502-41AB-B627-D0AEA53F4AC5</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>计算代码执行时间(ms)</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>jaCodeTime</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
