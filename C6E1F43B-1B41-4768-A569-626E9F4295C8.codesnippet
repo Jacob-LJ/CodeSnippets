@@ -37,7 +37,7 @@
 
 - (void)setUpNav {
     
-    self.title = @"TableViewVC";
+    self.navigationItem.title = @"TableViewVC";
     
     kDefineWeakSelf;
     [self showCustomLeftImgBarButton:^(UIButton *button) {

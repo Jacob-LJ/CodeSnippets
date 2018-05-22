@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jaCollectionViewVC_GT</string>
+	<string>jaCollectionViewVC_GT_SectionHeader</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -11,14 +11,17 @@
 	<key>IDECodeSnippetContents</key>
 	<string>//view
 #import "GTShareItemCCell.h"
+#import "GTTCSectionHeaderView.h"
 
-@interface jaCollectionViewVC_GT ()&lt;UICollectionViewDelegate, UICollectionViewDataSource&gt;
+static const NSInteger kListColumn = 3;
+
+@interface GTTCSpecialOfferListController ()&lt;UICollectionViewDelegate, UICollectionViewDataSource&gt;
 
 @property (nonatomic, assign) NSInteger page;
 
 @end
 
-@implementation jaCollectionViewVC_GT
+@implementation GTTCSpecialOfferListController
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -30,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.page = 1;
+    [self setUpInit];
     [self setUpNav];
     [self setUpCollectionView];
     
@@ -39,27 +42,38 @@
 - (void)setUpFlowLayout {
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.itemSize = CGSizeMake(kScreenWidth / 2.0, 100);
+    //    flowLayout.itemSize = CGSizeMake(kScreenWidth / 2.0, 100);
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.minimumLineSpacing = 0;
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     self.layout = flowLayout;
 }
 
+- (void)setUpInit {
+    self.page = 1;
+}
+
 - (void)setUpNav {
-    
+    self.navigationItem.title = @"特惠专区";
+    kDefineWeakSelf;
+    [self showCustomLeftImgBarButton:^(UIButton *button) {
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 - (void)setUpCollectionView {
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    //    self.isShowEmptyView = YES; // base中的设置控制了 collectionView.backgroundColor 在 MyBaseEmptyCollectionViewViewController 的 - (BOOL)emptyDataSetShouldDisplay:(UIScrollView内 *)scrollView
     self.collectionView.backgroundColor = kColor_f6f6f6;
     self.collectionView.showsVerticalScrollIndicator  = NO;
     [self.view addSubview:self.collectionView];
     
     //register cell
     [self.collectionView registerClass:[GTShareItemCCell class] forCellWithReuseIdentifier:GTShareItemCCellID];
+    //register section reuseview
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([GTTCSectionHeaderView class]) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:GTTCSectionHeaderViewID];
     
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
@@ -76,9 +90,23 @@
     [self.collectionView Lee_beginNormalHeaderRefresh];
 }
 
+#pragma mark - UICollectionViewDelegateFlowLayout
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)collectionViewLayout;
+    CGFloat cellW = (collectionView.width - (kListColumn - 1) * layout.minimumInteritemSpacing) / kListColumn;
+    return CGSizeMake(cellW, 100);
+}
+
 #pragma mark - UICollectionViewDelegate, UICollectionViewDataSource
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 2;
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 7;
+    if (section == 0) {
+        return 12;
+    }
+    return 4;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -89,6 +117,30 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"点击了 - %@", indexPath);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    
+    return CGSizeMake(self.view.size.width, 40);
+}
+
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    
+    UICollectionReusableView *reusableview = nil;
+    if (kind == UICollectionElementKindSectionHeader) {
+        GTTCSectionHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:GTTCSectionHeaderViewID forIndexPath:indexPath];
+        reusableview = headerView;
+        if (indexPath.section == 0) {
+            headerView.type = GTTCSectionHeaderViewTypeShowAll;
+            headerView.titleLB.text = @"门店";
+        } else if (indexPath.section == 1) {
+            headerView.type = GTTCSectionHeaderViewTypeDefault;
+            headerView.titleLB.text = @"类型";
+        }
+    }
+    
+    return reusableview;
 }
 
 #pragma mark - private
@@ -211,7 +263,7 @@
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>collectionViewVC_GT</string>
+	<string>CollectionVC_GT_SectionHeader</string>
 	<key>IDECodeSnippetTitle</key>
 	<string>jaCollectionViewVC_GT</string>
 	<key>IDECodeSnippetUserSnippet</key>
