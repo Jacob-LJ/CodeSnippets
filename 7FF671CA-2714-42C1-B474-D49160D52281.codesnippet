@@ -69,6 +69,7 @@ static const NSInteger kListColumn = 3;
     self.collectionView.backgroundColor = kColor_f6f6f6;
     self.collectionView.showsVerticalScrollIndicator  = NO;
     [self.view addSubview:self.collectionView];
+    self.collectionView.contentInset = UIEdgeInsetsMake(13, 10, 0, 10); //如果设置了，就要让refreshHeader或footer忽略对应的值
     
     //register cell
     [self.collectionView registerClass:[GTShareItemCCell class] forCellWithReuseIdentifier:GTShareItemCCellID];
@@ -76,7 +77,8 @@ static const NSInteger kListColumn = 3;
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([GTTCSectionHeaderView class]) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:GTTCSectionHeaderViewID];
     
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.top.left.right.equalTo(self.view);
+        make.bottom.equalTo(self.view).offset(-SafeAreaBottomHeight);
     }];
     
     kDefineWeakSelf;
@@ -86,6 +88,8 @@ static const NSInteger kListColumn = 3;
     [self.collectionView Lee_normalFooterRefreshWithBlock:^{
         [weakSelf getMoreShoplist];
     }];
+    self.collectionView.mj_header.ignoredScrollViewContentInsetTop = self.collectionView.contentInset.top;
+    self.collectionView.mj_footer.ignoredScrollViewContentInsetBottom = self.collectionView.contentInset.bottom;
     
     [self.collectionView Lee_beginNormalHeaderRefresh];
 }
